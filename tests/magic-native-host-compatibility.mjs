@@ -202,21 +202,25 @@ async function verify() {
             ),
             (byte) => byte.toString(16).padStart(2, '0'),
           ).join('');
-        const patterned = Array.from({ length: 8 }, (_, index) => {
-          const canvas = document.createElement('canvas');
-          canvas.width = 488;
-          canvas.height = 680;
-          const c = canvas.getContext('2d');
-          const gradient = c.createLinearGradient(0, 0, 488, 680);
-          gradient.addColorStop(0, `rgba(${30 + index * 20},80,120,0.75)`);
-          gradient.addColorStop(1, `rgba(180,${40 + index * 20},60,0.95)`);
-          c.fillStyle = gradient;
-          c.fillRect(0, 0, 488, 680);
-          c.fillStyle = 'rgba(250,240,210,0.6)';
-          for (let x = index; x < 488; x += 31) c.fillRect(x, 0, 3, 680);
-          c.clearRect(100, 160, 150, 100);
-          return canvas;
-        });
+        const patterned = await Promise.all(
+          Array.from({ length: 8 }, async (_, index) => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 488;
+            canvas.height = 680;
+            const c = canvas.getContext('2d');
+            const gradient = c.createLinearGradient(0, 0, 488, 680);
+            gradient.addColorStop(0, `rgba(${30 + index * 20},80,120,0.75)`);
+            gradient.addColorStop(1, `rgba(180,${40 + index * 20},60,0.95)`);
+            c.fillStyle = gradient;
+            c.fillRect(0, 0, 488, 680);
+            c.fillStyle = 'rgba(250,240,210,0.6)';
+            for (let x = index; x < 488; x += 31) c.fillRect(x, 0, 3, 680);
+            c.clearRect(100, 160, 150, 100);
+            const image = await createImageBitmap(canvas);
+            canvas.width = canvas.height = 0;
+            return image;
+          }),
+        );
         const images = (urls) =>
           new Map(
             urls.filter(Boolean).map((url) => {
@@ -503,7 +507,7 @@ async function verify() {
           prototype.measureText = originalMeasure;
           prototype.fillText = originalFill;
           prototype.strokeText = originalStroke;
-          for (const canvas of patterned) canvas.width = canvas.height = 0;
+          for (const image of patterned) image.close();
         }
       },
       { referenceRoot, specimens: nativeHostCases },
