@@ -104,6 +104,10 @@ The host assembles its material around those sources and `foilShader()`, supplyi
 its own texture samplers and artwork/printing composition. No host-specific
 material assembly is included in the package.
 
+Apply `WORN_GLSL` before finish-coverage blending and protected overlay composition,
+as the native renderer does. Applying wear to the final composite bypasses
+artwork-only coverage and changes protected printing.
+
 `FinishResources.documentMask(document, rasterHost, signal)` prepares the same
 artwork edges, imported alpha masks, native stamp and contributing layers as the
 complete renderer. For Magic, supply

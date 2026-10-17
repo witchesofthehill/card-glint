@@ -126,8 +126,9 @@ The README's paired eight-second GIFs and MP4s are captured from the same render
 
 ## Use it in an application
 
-This public fork is an installable Git dependency. Pin the full reviewed commit
-SHA in your dependency and commit the resulting application lockfile:
+The `manabrew-source-install` branch keeps this fork installable from Git, separate
+from the upstream renderer API contribution. Pin the full reviewed commit SHA in
+your dependency and commit the resulting application lockfile:
 
 ```sh
 yarn add 'card-glint@git+https://github.com/witchesofthehill/card-glint.git#<full-commit-sha>'
