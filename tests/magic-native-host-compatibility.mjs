@@ -112,9 +112,11 @@ async function verify() {
     'native-host-compatibility',
     hash(JSON.stringify(expected)) + '.json',
   );
+  const evidenceFile = path.join(root, 'evidence/native-host-compatibility.json');
   try {
     const receipt = JSON.parse(await readFile(receiptFile));
     assertReceipt(receipt, expected);
+    await writeJson(evidenceFile, receipt);
     return receipt;
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
@@ -184,6 +186,7 @@ async function verify() {
           frames: await import(/* @vite-ignore */ base + 'special-frames.ts'),
           profiles: await import(/* @vite-ignore */ base + 'profile.ts'),
           wording: await import(/* @vite-ignore */ base + 'wording.ts'),
+          mana: await import(/* @vite-ignore */ base + 'mana-assets.ts'),
         });
         const before = await load(beforePrefix);
         const after = await load(prefix);
@@ -221,9 +224,26 @@ async function verify() {
             return image;
           }),
         );
+        const manaCanvas = document.createElement('canvas');
+        manaCanvas.width = manaCanvas.height = 96;
+        const manaContext = manaCanvas.getContext('2d');
+        manaContext.fillStyle = '#cac5c0';
+        manaContext.beginPath();
+        manaContext.arc(48, 48, 48, 0, Math.PI * 2);
+        manaContext.fill();
+        manaContext.fillStyle = '#0d0f0f';
+        manaContext.fillRect(40, 20, 16, 55);
+        const manaBitmap = await createImageBitmap(manaCanvas);
+        manaCanvas.width = manaCanvas.height = 0;
+        const manaAssets = (face) => [
+          ...after.mana.faceManaAssets(face),
+          ...(face.faces ?? []).flatMap(manaAssets),
+        ];
+        const manaUrls = new Set(specimens.flatMap(({ face }) => manaAssets(face)));
         const images = (urls) =>
           new Map(
             urls.filter(Boolean).map((url) => {
+              if (manaUrls.has(url)) return [url, manaBitmap];
               let value = 0;
               for (const character of url)
                 value = (value + character.charCodeAt(0)) % patterned.length;
@@ -508,6 +528,7 @@ async function verify() {
           prototype.fillText = originalFill;
           prototype.strokeText = originalStroke;
           for (const image of patterned) image.close();
+          manaBitmap.close();
         }
       },
       { referenceRoot, specimens: nativeHostCases },
@@ -528,6 +549,7 @@ async function verify() {
     };
     assertReceipt(receipt, expected);
     await writeJson(receiptFile, receipt);
+    await writeJson(evidenceFile, receipt);
     return receipt;
   } finally {
     await browser?.close();
