@@ -114,8 +114,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/witchesofthehill/card-glint.git"
-  },
-  "engines": {
-    "node": ">=24 <25"
   }
 }

@@ -20,7 +20,7 @@ a layer above the finish must be drawn later or excluded in the host material.
 Use `card-glint@git+https://github.com/witchesofthehill/card-glint.git#<full-commit-sha>`
 with Yarn Classic 1.22 and pin an actual reviewed commit. Git preparation builds
 the package with its own development dependencies, independently of your app.
-It requires Node.js 24.x, Git, rustup, a native compiler/linker, and network access
+It requires Node.js 22.12+, Git, rustup, a native compiler/linker, and network access
 on a cold install. The build pins Rust 1.98.0 and wasm-bindgen-cli 0.2.127 and
 keeps Cargo downloads, build artifacts and the CLI inside the source checkout's
 `node_modules/.cache/card-glint`. No host download or patch script is needed.
@@ -36,7 +36,7 @@ their URLs to `createRenderer` or `createPixelKernels`. Declarations are include
 for every JavaScript entry point. The package contains no private app code and
 requires no registry credentials.
 
-The integration branch includes upstream 0.4.8 typography, printing presets,
+The integration branch includes upstream 0.4.9 typography, printing presets,
 provider adapters, artwork placement and surface controls. Native text painters
 accept `textInk` spans with character offsets and colors. The host owns change
 detection, type-word selection and power/toughness ranges. The painter measures

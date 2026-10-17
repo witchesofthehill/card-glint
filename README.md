@@ -50,7 +50,7 @@ memory. See [limits and cache ownership](docs/architecture.md).
 
 ## Build and run
 
-Source builds require Node.js 24.x, rustup on `PATH`, and native compiler/linker
+Source builds require Node.js 22.12+, rustup on `PATH`, and native compiler/linker
 tools. On macOS, install the Xcode command line tools; on Linux, install your
 distribution's C/C++ build tools; on Windows, install the MSVC build tools.
 Git installs also require Git. The build installs

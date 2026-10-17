@@ -6,9 +6,6 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const rust = '1.98.0';
 const wasmBindgen = '0.2.127';
-if (Number(process.versions.node.split('.')[0]) !== 24) {
-  throw new Error('card-glint source builds require Node.js 24.x.');
-}
 if (!['darwin', 'linux', 'win32'].includes(process.platform)) {
   throw new Error('card-glint source builds support macOS, Linux, and Windows.');
 }
