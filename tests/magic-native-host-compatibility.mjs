@@ -30,6 +30,16 @@ async function sourceFiles(directory) {
     .sort();
 }
 
+async function packMetadata(directory) {
+  const files = (await readdir(directory, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && /\.(?:json|css)$/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort();
+  return Promise.all(
+    files.map(async (file) => [file, hash(await readFile(path.join(directory, file)))]),
+  );
+}
+
 async function identity() {
   const executable = await stat(chromium.executablePath());
   return {
@@ -50,8 +60,7 @@ async function identity() {
       ).then(JSON.stringify),
     ),
     generated: await sourceHash(path.join(root, 'packages/browser/generated'), /\.(?:js|wasm)$/),
-    assets: hash(await readFile(path.join(root, 'games/magic/assets.json'))),
-    fonts: hash(await readFile(path.join(root, 'games/magic/fonts.css'))),
+    metadata: hash(JSON.stringify(await packMetadata(path.join(root, 'games/magic')))),
     executable: [chromium.executablePath(), executable.size, executable.mtimeMs],
     platform: [process.platform, process.arch],
     inputs: hash(JSON.stringify(nativeHostCases)),
@@ -127,12 +136,11 @@ async function verify() {
       assert.equal(after, change.after, 'Unreviewed host source change: ' + file);
     } else assert.equal(after, before, 'Unrecorded native source change: ' + file);
   }
-  for (const file of ['games/magic/assets.json', 'games/magic/fonts.css'])
-    assert.equal(
-      hash(await readFile(path.join(currentRoot, file))),
-      hash(await readNativeReference(file)),
-      'Native compatibility inputs differ from the pinned reference: ' + file,
-    );
+  assert.deepEqual(
+    await packMetadata(path.join(currentRoot, 'games/magic')),
+    await packMetadata(path.join(referenceRoot, 'games/magic')),
+    'Native runtime metadata differs from the pinned reference',
+  );
   const faults = [];
   const server = await createServer({
     configFile: false,

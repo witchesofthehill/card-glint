@@ -49,14 +49,25 @@ export async function nativeReferenceRoot() {
       const directory = await mkdtemp(path.join(os.tmpdir(), 'card-glint-native-reference-'));
       process.once('exit', () => rmSync(directory, { recursive: true, force: true }));
       await mkdir(directory, { recursive: true });
+      const metadata = execFileSync(
+        'git',
+        ['ls-tree', '--name-only', `${nativeReference}:games/magic`],
+        {
+          cwd,
+          encoding: 'utf8',
+        },
+      )
+        .trim()
+        .split('\n')
+        .filter((file) => /\.(?:json|css)$/.test(file))
+        .map((file) => `games/magic/${file}`);
       const archive = execFileSync(
         'git',
         [
           'archive',
           nativeReference,
           'games/magic/src',
-          'games/magic/assets.json',
-          'games/magic/fonts.css',
+          ...metadata,
           'packages/browser/src',
           'crates',
           'Cargo.toml',
