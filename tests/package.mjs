@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import os from 'node:os';
@@ -6,11 +6,10 @@ import { build } from 'vite';
 const root = process.cwd(),
   temporary = await mkdtemp(path.join(os.tmpdir(), 'card-glint-consumer-'));
 try {
-  const packed = JSON.parse(
-    execFileSync('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', temporary], {
-      encoding: 'utf8',
-    }),
-  )[0];
+  execFileSync('npm', ['pack', '--ignore-scripts', '--pack-destination', temporary], {
+    stdio: 'inherit',
+  });
+  const packed = { filename: (await readdir(temporary))[0] };
   await writeFile(
     path.join(temporary, 'package.json'),
     JSON.stringify({ name: 'consumer', private: true, type: 'module' }),
