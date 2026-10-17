@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "8000228d77c91ceed98e604c50290aac4271ba7e",
+  "policy": "Optional calibration policy only. Historical fit receipts retain their original hashes and scores; native replay verifies the unchanged legacy rendering path. Reverse edits reconstruct each complete baseline source file, while dependencies bind the new policy implementation.",
+  "dependencies": {
+    "games/magic/src/index.ts": "1c704e34d8f326158056072d2326716e4572911e1456bd846f5c3dfec39046bf",
+    "games/magic/src/presentation.ts": "fb3843ddaabd6936ac743e5dd278a9c9e66c510198a4662f291420945ea76f4f",
+    "games/magic/src/presentation/adventure-paint.ts": "5b659a50865509bf47339d60715d5e1b481b87a96fc6b40df24984ad6db0d158",
+    "games/magic/src/presentation/aftermath-paint.ts": "76594ddf017b3fc21ee6a0e5f7dff64e92bb19cd6f018186bda0d19b9e3a855f",
+    "games/magic/src/presentation/calibration-input.ts": "0fb2aa26b19e999a7d41173f6919f14152ff5607bf52e508cc6103bef777e625",
+    "games/magic/src/presentation/calibration-modern-sources.ts": "4a8d57a1ef49f52443706980fc2872ebd8a88c125c733385a1bbabc1e20f2994",
+    "games/magic/src/presentation/canvas-assets.ts": "1d0246432611ab47a6a6fb80bbb93bea9fc9aeda999f9c83bdba09d90d5a3a15",
+    "games/magic/src/presentation/canvas-face.ts": "751217ee8f50126bd9a84b1bbc4e9a457cdf1a763385b84789c191151e674a86",
+    "games/magic/src/presentation/early-hsb-material.ts": "165028ef8fc2c238fc79eec3754444aeaff3dcdf99be05dd1472ad45909b9842",
+    "games/magic/src/presentation/face-layout.ts": "bde9930ab572281c451093bb85146688e05648fbc4efbdb1bc8a129188c5ce0f",
+    "games/magic/src/presentation/frame-plate-paint.ts": "4391552e441e05113afc1d8b57f90cffed32ebbe3559bc8e81ed64eea96996a7",
+    "games/magic/src/presentation/frame-plates.ts": "0bc8877010483d71a037ae88d8311db5441d4f9f8faccf9e45bcf2d395d85405",
+    "games/magic/src/presentation/future-template-paint.ts": "36aa13e389a65cde7e5e1b89728b3a2323e3894a35ff4a93d91771b8384f0799",
+    "games/magic/src/presentation/prepare-material.ts": "47030b16099a68b83d8e005e0f281fff3cd87e2ad20c984cc55d896c69d97005",
+    "games/magic/src/presentation/prepare-paint.ts": "aa6fd130638c8f5e4cea3fcf8575ec11bbdcf8c1843d6ac40eed2197da9bf910",
+    "games/magic/src/presentation/printing-calibration-materials.ts": "cf9138efaf587cda0a074ebbeebbecf4beae4050b69ebe1a4463ad4fccc31bdc",
+    "games/magic/src/presentation/printing-calibration-types.ts": "a4ade02bac838f4fa57b3bc9da4b83f88583751f5a9eb3e0a00029b1db4863f3",
+    "games/magic/src/presentation/printing-calibration.ts": "bbb860ed3608aebc48af3aa843fdf4c5febe14eebd83601d413be647a595e4e9",
+    "games/magic/src/presentation/printing-presets.ts": "da78ec9d3136a616608a7c146448147a3fd5e351cb3b162dcb605599dbda79c0",
+    "games/magic/src/presentation/printing-style-schema.ts": "c62cf3b05d11414e773c29eea7d6fef8b0a516adbd5ba66ff90b94f239c5045e",
+    "games/magic/src/presentation/printing-style-types.ts": "9a405f5a91c41879e65e28004e4960bb795b34d539fe08d54e8ae3f141fdbc4a",
+    "games/magic/src/presentation/printing-style.ts": "4f7d490ca799f3e8c221354b75fd94b243942045e37df93d1be4c30f9478f8d6",
+    "games/magic/src/presentation/retro-dual-material.ts": "95a0d22251f927bba0f00fcaa39071dd365ce187921c2820424ef68e99eca07c",
+    "games/magic/src/presentation/retro-paint.ts": "9a7a1072c53594e30bd767b758477cce18fc873c250d431700c8aa626a0a5f4a",
+    "games/magic/src/presentation/saga-paint.ts": "59de1b6fa07e870609c4fa6fca86dfefe7570399be88cb557d886a674d17dab7",
+    "games/magic/src/presentation/security-stamp-material.ts": "aa737cb50c9fff0c60f030439d2ec259894529c0c0ce70cbe83cfa240b11d45a",
+    "games/magic/src/presentation/split-layout.ts": "f6112629190f4f12420c14dcede35879535a3f34b74dd5a27398441b3eefbdd5",
+    "games/magic/src/presentation/split-modern-paint.ts": "21215a5edef244413d9433748510cdb0709dd98a6c08fa5ef7d6ca59663a8f7a",
+    "games/magic/src/presentation/standard-frame-paint.ts": "35b7c58ac1c333c4de3cd0fa2cded842e29a0418a2c99994a6a1bffb08c0cef7"
+  },
+  "files": {
+    "games/magic/src/index.ts": {
+      "before": "373b0ccb8559595e194d9e4d490cbf5de05610b297d70b6aa428c3b743f2df30",
+      "after": "1c704e34d8f326158056072d2326716e4572911e1456bd846f5c3dfec39046bf",
+      "reverseEdits": [
+        {
+          "start": 261,
+          "count": 2,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation.ts": {
+      "before": "87dfa3fcef163821ab74233b9dc4c0b31b97de719868ca9c53a493ee1d5dbe26",
+      "after": "fb3843ddaabd6936ac743e5dd278a9c9e66c510198a4662f291420945ea76f4f",
+      "reverseEdits": [
+        {
+          "start": 58,
+          "count": 2,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/adventure-paint.ts": {
+      "before": "ce391cc8e279188c44cc6746fa2e4b5e4abda6945424db261dcfe7c7641972d1",
+      "after": "5b659a50865509bf47339d60715d5e1b481b87a96fc6b40df24984ad6db0d158",
+      "reverseEdits": [
+        {
+          "start": 104,
+          "count": 1,
+          "lines": ["  c.fillStyle = '#000';\n"]
+        },
+        {
+          "start": 24,
+          "count": 1,
+          "lines": ["    c.fillStyle = '#000';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/aftermath-paint.ts": {
+      "before": "34ee9c1e8aef746bd532069235d1affd527cbe3689cec820f840e2c3d72ca55a",
+      "after": "76594ddf017b3fc21ee6a0e5f7dff64e92bb19cd6f018186bda0d19b9e3a855f",
+      "reverseEdits": [
+        {
+          "start": 94,
+          "count": 1,
+          "lines": ["  c.fillStyle = '#090806';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/canvas-assets.ts": {
+      "before": "e3a58258e01b9f8b22a5a78bbf7c4455681c46dec5329d06dff5358d5e5732de",
+      "after": "1d0246432611ab47a6a6fb80bbb93bea9fc9aeda999f9c83bdba09d90d5a3a15",
+      "reverseEdits": [
+        {
+          "start": 178,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/canvas-face.ts": {
+      "before": "95a694d0eb976b5e77c3b042636c677de0034ebb551ab52da7f2be4f1c5f7fa1",
+      "after": "751217ee8f50126bd9a84b1bbc4e9a457cdf1a763385b84789c191151e674a86",
+      "reverseEdits": [
+        {
+          "start": 508,
+          "count": 2,
+          "lines": ["    context.fillStyle = cardStock(face.setCode, face.borderColor).border;\n"]
+        },
+        {
+          "start": 473,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 273,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 168,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 139,
+          "count": 1,
+          "lines": ["    'canvas-face-v143',\n"]
+        },
+        {
+          "start": 0,
+          "count": 2,
+          "lines": ["import { calibratedPrintingStock } from './calibration-profiles.js';\n"]
+        }
+      ]
+    },
+    "games/magic/src/presentation/early-hsb-material.ts": {
+      "before": "8468848c4f84bc53f245be751e0d671e188a7a9ca84f51b6a1136e38fb7395bb",
+      "after": "165028ef8fc2c238fc79eec3754444aeaff3dcdf99be05dd1472ad45909b9842",
+      "reverseEdits": [
+        {
+          "start": 32,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 16,
+          "count": 4,
+          "lines": [
+            "import { calibratedFrameMaterials, calibratedManaTarget } from './calibration-profiles.js';\n"
+          ]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/face-layout.ts": {
+      "before": "81ed0fe3d1453d1751f70b8d35b79f217eebc74a890d4c058be81d4d170ec960",
+      "after": "bde9930ab572281c451093bb85146688e05648fbc4efbdb1bc8a129188c5ce0f",
+      "reverseEdits": [
+        {
+          "start": 85,
+          "count": 2,
+          "lines": []
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/frame-plate-paint.ts": {
+      "before": "0e7f3a31ccb37fbccd548b9caf1690aa4818b52aa0898d306363531066fdaac0",
+      "after": "4391552e441e05113afc1d8b57f90cffed32ebbe3559bc8e81ed64eea96996a7",
+      "reverseEdits": [
+        {
+          "start": 0,
+          "count": 1,
+          "lines": ["import { calibratedPrintingStock } from './calibration-profiles.js';\n"]
+        }
+      ]
+    },
+    "games/magic/src/presentation/frame-plates.ts": {
+      "before": "9a1007474831a5e37b965485949552bd6f5e65742b5be466c7f1c3845a5d6ccc",
+      "after": "0bc8877010483d71a037ae88d8311db5441d4f9f8faccf9e45bcf2d395d85405",
+      "reverseEdits": [
+        {
+          "start": 159,
+          "count": 4,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/future-template-paint.ts": {
+      "before": "f7c7802dfdbfd8e380b57e1b0f64b3fc947c707eb5c502c54192c451ca9da1f5",
+      "after": "36aa13e389a65cde7e5e1b89728b3a2323e3894a35ff4a93d91771b8384f0799",
+      "reverseEdits": [
+        {
+          "start": 0,
+          "count": 1,
+          "lines": ["import { calibratedPrintingStock } from './calibration-profiles.js';\n"]
+        }
+      ]
+    },
+    "games/magic/src/presentation/prepare-material.ts": {
+      "before": "699161f602d080e7aaf3c82e1e26f59af4b7a971f8238cda7f26526cbb87de65",
+      "after": "47030b16099a68b83d8e005e0f281fff3cd87e2ad20c984cc55d896c69d97005",
+      "reverseEdits": [
+        {
+          "start": 104,
+          "count": 1,
+          "lines": ["    c.fillStyle = '#000';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/prepare-paint.ts": {
+      "before": "0826efdc6070f0aa5adf6cefad2a23fde3e01a5cb47574298d7b804dde8cd428",
+      "after": "aa6fd130638c8f5e4cea3fcf8575ec11bbdcf8c1843d6ac40eed2197da9bf910",
+      "reverseEdits": [
+        {
+          "start": 87,
+          "count": 1,
+          "lines": ["  c.fillStyle = '#000';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/printing-presets.ts": {
+      "before": "63c33adf58cb3db0738d3d0eb457668fc1608391752e34de5fa6ee6697f39fc6",
+      "after": "da78ec9d3136a616608a7c146448147a3fd5e351cb3b162dcb605599dbda79c0",
+      "reverseEdits": [
+        {
+          "start": 423,
+          "count": 3,
+          "lines": ["  return face;\n"]
+        },
+        {
+          "start": 275,
+          "count": 5,
+          "lines": []
+        },
+        {
+          "start": 134,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 0,
+          "count": 3,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/printing-style-schema.ts": {
+      "before": "4c43cff151cb4e92231d10515baf69c50d75219b6e2a7c18d348e2fb03d2889f",
+      "after": "c62cf3b05d11414e773c29eea7d6fef8b0a516adbd5ba66ff90b94f239c5045e",
+      "reverseEdits": [
+        {
+          "start": 25,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/printing-style-types.ts": {
+      "before": "19e1b679dc07acb0e298d24e89249a299e752221ed3b1b722b691b75e8dbe1e9",
+      "after": "9a405f5a91c41879e65e28004e4960bb795b34d539fe08d54e8ae3f141fdbc4a",
+      "reverseEdits": [
+        {
+          "start": 65,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/printing-style.ts": {
+      "before": "735d5a8afea6df7eead67b687f39d22a108f7eeaab48b401396c6b6ab86385be",
+      "after": "4f7d490ca799f3e8c221354b75fd94b243942045e37df93d1be4c30f9478f8d6",
+      "reverseEdits": [
+        {
+          "start": 310,
+          "count": 1,
+          "lines": ["    notices,\n"]
+        },
+        {
+          "start": 304,
+          "count": 2,
+          "lines": ["    face: resolvePrintingPreset(input, selection),\n"]
+        },
+        {
+          "start": 301,
+          "count": 2,
+          "lines": []
+        },
+        {
+          "start": 160,
+          "count": 7,
+          "lines": [
+            "      return { id: frame.id, label: frame.label, supported: true, notices: result.notices };\n"
+          ]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/retro-dual-material.ts": {
+      "before": "42c99ab36e5d64e01a0913e358481c9d4a291fc279ea1b55b895f1ce69fbee73",
+      "after": "95a0d22251f927bba0f00fcaa39071dd365ce187921c2820424ef68e99eca07c",
+      "reverseEdits": [
+        {
+          "start": 3,
+          "count": 1,
+          "lines": ["import { calibratedFrameMaterials } from './calibration-profiles.js';\n"]
+        }
+      ]
+    },
+    "games/magic/src/presentation/retro-paint.ts": {
+      "before": "011bd00a200a7f6dd7d98b84b7734cc88bda4f43d1e670aa7efaf8841a709de4",
+      "after": "9a7a1072c53594e30bd767b758477cce18fc873c250d431700c8aa626a0a5f4a",
+      "reverseEdits": [
+        {
+          "start": 0,
+          "count": 1,
+          "lines": ["import { calibratedPrintingStock } from './calibration-profiles.js';\n"]
+        }
+      ]
+    },
+    "games/magic/src/presentation/saga-paint.ts": {
+      "before": "1978790fd04f14ae14b5ddee39c6aafd8499adfe1d833caa401afcebbbc9434e",
+      "after": "59de1b6fa07e870609c4fa6fca86dfefe7570399be88cb557d886a674d17dab7",
+      "reverseEdits": [
+        {
+          "start": 36,
+          "count": 1,
+          "lines": ["  c.fillStyle = '#090806';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/security-stamp-material.ts": {
+      "before": "c201fe07c1eb4e61ad5c0e15d6b52bb47efb6bff932988bf5351ab9e4d451cb5",
+      "after": "aa737cb50c9fff0c60f030439d2ec259894529c0c0ce70cbe83cfa240b11d45a",
+      "reverseEdits": [
+        {
+          "start": 57,
+          "count": 3,
+          "lines": [
+            "            pixels.data[i] = pixels.data[i]! + 9 * weight;\n",
+            "            pixels.data[i + 1] = pixels.data[i + 1]! + 8 * weight;\n",
+            "            pixels.data[i + 2] = pixels.data[i + 2]! + 6 * weight;\n"
+          ]
+        },
+        {
+          "start": 31,
+          "count": 1,
+          "lines": []
+        },
+        {
+          "start": 27,
+          "count": 1,
+          "lines": ["        'security-stamp-frame-palette-v4',\n"]
+        },
+        {
+          "start": 14,
+          "count": 3,
+          "lines": []
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/split-layout.ts": {
+      "before": "40d6d9f8d548db7b375eaca390f3059e57a5187b8bdd9d7c4ccb8fda193b7163",
+      "after": "f6112629190f4f12420c14dcede35879535a3f34b74dd5a27398441b3eefbdd5",
+      "reverseEdits": [
+        {
+          "start": 23,
+          "count": 2,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/split-modern-paint.ts": {
+      "before": "187298351e0b1ac00f3e423c9d7a2e6d3a1a1e369f41cbca345de9e283db8bb5",
+      "after": "21215a5edef244413d9433748510cdb0709dd98a6c08fa5ef7d6ca59663a8f7a",
+      "reverseEdits": [
+        {
+          "start": 18,
+          "count": 1,
+          "lines": ["  c.fillStyle = '#000';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    },
+    "games/magic/src/presentation/standard-frame-paint.ts": {
+      "before": "4d330885bfea56fd0d5d9f48f472be0917891de5082361f408dca7293fcbd04b",
+      "after": "35b7c58ac1c333c4de3cd0fa2cded842e29a0418a2c99994a6a1bffb08c0cef7",
+      "reverseEdits": [
+        {
+          "start": 40,
+          "count": 1,
+          "lines": ["      c.fillStyle = '#090806';\n"]
+        },
+        {
+          "start": 0,
+          "count": 1,
+          "lines": []
+        }
+      ]
+    }
+  }
+}

@@ -34,7 +34,11 @@ try {
       '-e',
       `
     import assert from 'node:assert/strict';
-    import { resolvePrintingWording, resolvePrintingArtist, resolvePrintingPreset, resolveScryfallPrinting, fromScryfallCard, fromMtgjsonCard, artworkGeometry, resolveArtPlacement, printingStyles, resolvePrintingStyle, composePrintingSelection, validatePrintingStyle } from 'card-glint/magic';
+    import { resolvePrintingWording, resolvePrintingArtist, resolvePrintingPreset, resolveScryfallPrinting, fromScryfallCard, fromMtgjsonCard, artworkGeometry, resolveArtPlacement, printingStyles, resolvePrintingStyle, composePrintingSelection, validatePrintingStyle, resolvePrintingCalibration, printingCalibrationOptions, printingCalibrationApiVersion } from 'card-glint/magic';
+    assert.equal(printingCalibrationApiVersion,1);
+    const calibrated={name:'Calibration probe',setCode:'NEO',colors:['R'],calibration:'auto'};
+    assert.equal(resolvePrintingCalibration(calibrated).components.border.color,'#16130e');
+    assert.equal(printingCalibrationOptions(calibrated)[0].supported,true);
     const oracle = {typeLine:'Creature', rulesText:'Oracle rules.'};
     const result = resolvePrintingWording('f594b7aa-d44e-47c4-989b-565f881e25f1', {oracle, original:oracle});
     assert.equal(result.wordings.oracle.rulesText, oracle.rulesText);
@@ -43,7 +47,7 @@ try {
     const artist = resolvePrintingArtist('0faa005e-c753-4484-bf64-349350d59094', 'Dan Murayama Scott');
     assert.equal(artist.artist, 'Dan Scott');
     assert.equal(artist.provenance.status, 'applied');
-    const face = resolvePrintingPreset({name:'Probe',typeLine:'Instant',colors:['U']}, {preset:'plc-colorshifted',overrides:{collectorNumber:'7',elements:{artist:{hidden:true}}}});
+    const face = resolvePrintingPreset({name:'Probe',typeLine:'Instant',colors:['U']}, {preset:'plc-colorshifted',overrides:{calibration:'auto',collectorNumber:'7',elements:{artist:{hidden:true}}}});
     assert.equal(face.frameTreatment, 'colorshifted');
     assert.equal(resolveScryfallPrinting({frame:'future'}).frameTemplate, 'future');
     const art = resolveArtPlacement(face,{mode:'window',zoom:2,focalPoint:[.3,.6]});
@@ -67,7 +71,7 @@ import { createPixelKernels } from 'card-glint/kernels';
 export { faceArtBounds, composeCardTexture, foilShader, createPixelKernels };
 import wasmUrl from 'card-glint/renderer.wasm?url';
 const face: MagicCard = {name:'Example', typeLine:'Creature — Wizard', colors:['U'],power:'2',toughness:'2',blackBorderLift:0.03,setSymbolMask:'ink',printingOmissions:[{rect:[0.1,0.1,0.4,0.1],texts:['Example']}]};
-const selection: PrintingSelection = {preset:printingPresets[0]!.id,overrides:{collectorNumber:'7',elements:{artist:{offset:[2,0]}}}};
+const selection: PrintingSelection = {preset:printingPresets[0]!.id,overrides:{calibration:'auto',collectorNumber:'7',elements:{artist:{offset:[2,0]}}}};
 export const presetFace = resolvePrintingPreset(face, selection);
 const importOptions:CardImportOptions={wording:'oracle'};export const imported=fromScryfallCard({name:'Probe',type_line:'Instant'},importOptions);export const importedMtgjson=fromMtgjsonCard({name:'Probe',type:'Instant'});
 const style:PrintingStyle=printingStyles[0]!;export const styleFace=resolvePrintingStyle(face,style,{overrides:{frameColors:['R']}}).face;

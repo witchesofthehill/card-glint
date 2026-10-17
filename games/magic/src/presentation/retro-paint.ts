@@ -1,6 +1,6 @@
 import { paintTextInk } from './text-ink.js';
 import { rulesInkVisible } from './rules-visibility.js';
-import { calibratedPrintingStock } from './calibration-profiles.js';
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import { paintPrintingElement } from './printing-elements.js';
 import { paintRetroStockBorder, paintRetroStockWindow } from './retro-stock-border.js';
 import { legendsFrame } from './legends-frame.js';

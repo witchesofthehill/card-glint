@@ -1,6 +1,6 @@
 {
   "name": "card-glint",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "type": "module",
   "scripts": {
     "prepare": "node scripts/build-wasm.mjs && node scripts/build.mjs --package-only",
@@ -48,7 +48,7 @@
     "test:cardstock": "node tests/cardstock.mjs",
     "test:printing-presets": "node tests/magic-printing-presets.mjs && node tests/magic-art-placement.mjs && node tests/printing-presets-demo.mjs && node tests/magic-printing-style.mjs",
     "test:provider-cards": "node tests/magic-provider-cards.mjs",
-    "test:printing-apis": "node tests/magic-provider-cards.mjs && node tests/magic-printing-style.mjs && node tests/magic-art-placement.mjs",
+    "test:printing-apis": "node tests/magic-provider-cards.mjs && node tests/magic-printing-style.mjs && node tests/magic-art-placement.mjs && node tests/magic-printing-calibration.mjs",
     "test:set-symbol-masks": "node tests/magic-set-symbol-mask.mjs && node tests/magic-set-symbol-materials.mjs",
     "test:foil-continuity": "node tests/foil-continuity.mjs",
     "magic:calibration:inventory": "node games/magic/tools/accuracy/calibration-inventory.mjs",

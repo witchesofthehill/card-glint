@@ -1,3 +1,4 @@
+import { calibrationFace } from './calibration-input.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput } from './face-layout.js';
 import {
@@ -13,7 +14,10 @@ import { blendFrameMaterial } from './frame-material-blend.js';
 import { colorFrame, type FrameHsb } from './frame-hsb.js';
 import { BITMAP_MANA_COLORS } from './mana-colors.js';
 import { earlyHsbBitmapCache, type MaterialBitmapLease } from './material-bitmap-cache.js';
-import { calibratedFrameMaterials, calibratedManaTarget } from './calibration-profiles.js';
+import {
+  calibratedFrameMaterials,
+  calibratedManaTarget,
+} from './printing-calibration-materials.js';
 import { eighthBasicMaterialJobs } from './eighth-basic-material.js';
 import { securityStampMaterialJobs } from './security-stamp-material.js';
 import { futureManaMaterialJobs } from './future-mana-material.js';
@@ -26,6 +30,7 @@ export async function prepareEarlyHsb(
   images: CanvasImages,
   signal: AbortSignal,
 ): Promise<{ images: CanvasImages; dispose: () => void }> {
+  face = calibrationFace(face);
   const unchanged = { images, dispose() {} };
   const adjustments = new Map<string, FrameHsb>(Object.entries(calibratedFrameMaterials(face))),
     colors: Record<string, string> = {},

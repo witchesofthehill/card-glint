@@ -1,4 +1,5 @@
 import { rulesInkVisible } from './rules-visibility.js';
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import { SECURITY_STAMP_RECTS } from './security-stamp-geometry.js';
 import { hasOvalSecurityStamp } from './security-stamp-policy.js';
 import { paintSagaColors } from './saga-colors.js';
@@ -35,7 +36,7 @@ export function paintSagaFace(
     return image;
   };
   c.save();
-  c.fillStyle = '#090806';
+  c.fillStyle = calibratedPrintingStock(face) ?? '#090806';
   c.fillRect(0, 0, W, H);
   if (underArt) c.drawImage(underArt, 0, 0, W, H);
   if (layer !== 'artwork') {

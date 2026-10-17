@@ -23,6 +23,7 @@ function id(value: unknown) {
   if (typeof value !== 'string' || !idPattern.test(value)) throw Error('Invalid printing style ID');
 }
 const overrideKeys = [
+  'calibration',
   'artist',
   'legalText',
   'collectorNumber',

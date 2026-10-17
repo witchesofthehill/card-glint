@@ -1,3 +1,4 @@
+import { resolvePrintingCalibration } from './printing-calibration.js';
 import { validateSymbolAdjustment } from './symbol-adjustment.js';
 import type { RenderedCardInput } from './face-layout.js';
 import { artPlacementSupport } from './art-placement.js';
@@ -157,7 +158,13 @@ export function printingStyleOptions(
   return valid.frames.map((frame) => {
     try {
       const result = resolvePrintingStyle(input, valid, card, { ...face, frame: frame.id });
-      return { id: frame.id, label: frame.label, supported: true, notices: result.notices };
+      return {
+        id: frame.id,
+        label: frame.label,
+        supported: true,
+        notices: result.notices,
+        calibration: result.calibration,
+      };
     } catch (error) {
       return {
         id: frame.id,
@@ -292,13 +299,16 @@ export function resolvePrintingStyle(
     notices.push('Inherited artwork placement is unavailable for this frame.');
   }
   selection = structuredClone(selection);
+  const resolved = resolvePrintingPreset(input, selection);
+  const calibration = resolvePrintingCalibration(resolved);
   return {
-    face: resolvePrintingPreset(input, selection),
+    face: resolved,
+    calibration,
     selection,
     frame: frame.id,
     frameSource,
     ...(rule ? { rule: rule.id } : {}),
-    notices,
+    notices: [...notices, ...calibration.notices],
   };
 }
 function immutable<T>(value: T): T {

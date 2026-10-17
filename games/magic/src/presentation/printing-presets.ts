@@ -1,3 +1,6 @@
+import { supportsModernCalibration } from './calibration-modern-sources.js';
+import { calibrationFace } from './calibration-input.js';
+import { validatePrintingCalibration } from './printing-calibration-types.js';
 import { validateFutureTreatment } from './future-frame.js';
 import { validateSymbolAdjustment, type SymbolAdjustment } from './symbol-adjustment.js';
 import { faceSetSymbol } from './assets.js';
@@ -129,6 +132,7 @@ export const printingPresets: readonly Readonly<PrintingPreset>[] = Object.freez
   entries.map((p) => Object.freeze(p)),
 );
 export interface PrintingOverrides {
+  calibration?: RenderedCardInput['calibration'];
   /** Undefined follows preset, null hides the component, string replaces it. */
   artist?: string | null;
   legalText?: string | null;
@@ -273,6 +277,11 @@ export function resolvePrintingPreset(
     );
   for (const [key, value] of Object.entries(overrides)) {
     if (value === undefined) continue;
+    if (key === 'calibration') {
+      validatePrintingCalibration(value);
+      face.calibration = structuredClone(value);
+      continue;
+    }
     if (key === 'setSymbolCode') continue;
     if (key === 'styleSetCode') {
       if (typeof value !== 'string' || !/^[-A-Za-z0-9_]{1,16}$/.test(value))
@@ -416,7 +425,9 @@ export function resolvePrintingPreset(
         resolvePrintingPreset({ ...child, layout: 'normal' }, selection),
       ),
     };
-  return face;
+  if (typeof face.calibration === 'object' && !supportsModernCalibration(face))
+    throw Error('M21 calibration requires a modern frame.');
+  return calibrationFace(face);
 }
 
 /** UI-facing controls deliberately exclude layout-specific painters that are not

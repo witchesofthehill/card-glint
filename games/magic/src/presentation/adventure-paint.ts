@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput } from './face-layout.js';
 import { ADVENTURE_RECTS, adventureCrown } from './adventure-frame.js';
@@ -21,7 +22,7 @@ export function paintAdventureFrame(
   if (resolveCardProfile(face).legendary) {
     const crown = images.get(adventureCrown(face));
     if (!crown) throw Error('Adventure crown is unavailable.');
-    c.fillStyle = '#000';
+    c.fillStyle = calibratedPrintingStock(face) ?? '#000';
     c.fillRect(19.2, 18.8, 449.6, 12.1);
     c.drawImage(crown, 13.4, 13, 461.4, 113.4);
   }
@@ -117,7 +118,7 @@ export function paintAdventureFace(
   const spell = face.faces?.[1];
   if (!spell) throw Error('Adventure spell is missing.');
   c.save();
-  c.fillStyle = '#000';
+  c.fillStyle = calibratedPrintingStock(face) ?? '#000';
   c.fillRect(0, 0, 488, 680);
   if (underArt) c.drawImage(underArt, 0, 0, 488, 680);
   if (layer !== 'artwork') paintAdventureFrame(c, face, images);

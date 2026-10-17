@@ -1,3 +1,4 @@
+import type { PrintingCalibrationReport } from './printing-calibration-types.js';
 import type { RenderedCardInput } from './face-layout.js';
 import type { ArtPlacement } from './art-placement.js';
 import type { FrameColor } from './profile.js';
@@ -62,6 +63,7 @@ export interface PrintingStyleChoice extends PrintingLayer {
   frame?: string;
 }
 export interface PrintingStyleResult {
+  calibration: PrintingCalibrationReport;
   face: RenderedCardInput;
   selection: PrintingSelection;
   frame: string;

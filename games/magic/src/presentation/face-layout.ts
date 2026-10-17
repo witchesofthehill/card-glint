@@ -1,3 +1,4 @@
+import type { PrintingCalibrationChoice } from './printing-calibration-types.js';
 import type { ArtPlacement } from './art-placement.js';
 import type { PrintingElements } from './printing-elements.js';
 import type { SymbolAdjustment } from './symbol-adjustment.js';
@@ -95,6 +96,8 @@ export interface RenderedCardInput extends CardProfileInput {
    * early-hsb-v1 limits these to the first
    * four sets. Omitted preserves source colors. Art and lettering are unchanged. */
   colorCalibration?: 'early-hsb-v1' | 'set-hsb-v1';
+  /** Explicit appearance policy, independent of frame selection and printed identity. */
+  calibration?: PrintingCalibrationChoice;
   illustration?: string | null;
   etchedIllustration?: string | null;
   credit?: string | null;

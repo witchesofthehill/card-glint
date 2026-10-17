@@ -21,6 +21,8 @@ export function splitPanels(face: RenderedCardInput): SplitPanel[] {
     const cut = aftermath ? 0.615 : 0.5;
     const inherited = {
       setCode: face.setCode,
+      calibration: face.calibration,
+      colorCalibration: face.colorCalibration,
       frameStyle: face.frameStyle,
       rarity: face.rarity,
       securityStamp: face.securityStamp,

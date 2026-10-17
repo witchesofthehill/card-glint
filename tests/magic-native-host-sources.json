@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reference": "8000228d77c91ceed98e604c50290aac4271ba7e",
+  "reference": "a79aa84a6a95375a56ab174903e699baa2ee5387",
   "scope": "Exact host-hook and source-import changes. Hashes identify sources only; default native compatibility also requires the executable differential pixel and measurement gate.",
   "files": {
     "games/magic/src/css.d.ts": {
@@ -12,40 +12,40 @@
       "after": "f9d8108bf5651ea38d6a2588311054498990a42f2f852686775ae0b6cde91876"
     },
     "games/magic/src/index.ts": {
-      "before": "373b0ccb8559595e194d9e4d490cbf5de05610b297d70b6aa428c3b743f2df30",
-      "after": "50111eaf42a5f822e8b1a807393d242d0a78fe81b2bba44231bbcb9266a7efdb"
+      "before": "1c704e34d8f326158056072d2326716e4572911e1456bd846f5c3dfec39046bf",
+      "after": "7c8d28425fb6f5ea43f06d519a8ea00ccd87ab9d2fd26539396425549795b64a"
     },
     "games/magic/src/presentation.ts": {
-      "before": "87dfa3fcef163821ab74233b9dc4c0b31b97de719868ca9c53a493ee1d5dbe26",
-      "after": "ab1377589705ba85ff978f304264d743b29f16af193769c35e04c8a18573be91"
+      "before": "fb3843ddaabd6936ac743e5dd278a9c9e66c510198a4662f291420945ea76f4f",
+      "after": "97282975a992d43de0ce3abae92b0e2a0e31757354ef34604b75c336838b875b"
     },
     "games/magic/src/presentation/adventure-footer.ts": {
       "before": "cfb4f2d33d9e0c203457d6934815d567b4f949eaab7bb91de5bad476975bc715",
       "after": "d8c99a006a878bcd4c8277ba0a3602bd96a133daea82469c4fc3ec55669a337f"
     },
     "games/magic/src/presentation/adventure-paint.ts": {
-      "before": "ce391cc8e279188c44cc6746fa2e4b5e4abda6945424db261dcfe7c7641972d1",
-      "after": "cb594031e62dc1eabb4ba7bee6d822dcce3d8012c85e1c97962ad3878142a34a"
+      "before": "5b659a50865509bf47339d60715d5e1b481b87a96fc6b40df24984ad6db0d158",
+      "after": "efb24f4b7e3611f66a6a8adffe756db00a88b1b3b5b5314ea90ead784e5db029"
     },
     "games/magic/src/presentation/adventure-rules.ts": {
       "before": "9f1a43c6340b05ce73797e544a0ddfc91c3ffeb9d18e39a65e24d9e2787791d9",
       "after": "fbf87b37d31914781877f00e00214fff00b838a4b3be92627e9c0addfffc66c7"
     },
     "games/magic/src/presentation/aftermath-paint.ts": {
-      "before": "34ee9c1e8aef746bd532069235d1affd527cbe3689cec820f840e2c3d72ca55a",
-      "after": "1bcc58e319349127763971855cdd4652556f937d006267051b70db2bf27e0560"
+      "before": "76594ddf017b3fc21ee6a0e5f7dff64e92bb19cd6f018186bda0d19b9e3a855f",
+      "after": "391183f78ffaf9f3649439496bb8090d982a7870face15f3203001151cb43604"
     },
     "games/magic/src/presentation/art-placement.ts": {
       "before": "47630384becfa63ed1c8e21d183cf793880a9fc4eab127dfb32f4f506cbc6941",
       "after": "f997f657a5c8daca66978612f4e870b1578a2095e1844a1fbe84fd6e480d2f5d"
     },
     "games/magic/src/presentation/canvas-assets.ts": {
-      "before": "e3a58258e01b9f8b22a5a78bbf7c4455681c46dec5329d06dff5358d5e5732de",
-      "after": "4c23318d534472f748396cbb6f3399f4dfce4845d7783cdd6b6aef4472d12db7"
+      "before": "1d0246432611ab47a6a6fb80bbb93bea9fc9aeda999f9c83bdba09d90d5a3a15",
+      "after": "6a7b81721d69d9878716bfc7e3fc822d80d911e522f07bd4843a79f12a370aee"
     },
     "games/magic/src/presentation/canvas-face.ts": {
-      "before": "95a694d0eb976b5e77c3b042636c677de0034ebb551ab52da7f2be4f1c5f7fa1",
-      "after": "0bcc014ed11eeac8d9c20009db5478ba26eaa16b924de7f6a0df63ed1c61242c"
+      "before": "751217ee8f50126bd9a84b1bbc4e9a457cdf1a763385b84789c191151e674a86",
+      "after": "d2179698a37aa3c835c8bcbd250cb89181af6ab24a654fa1e1c066328f238c88"
     },
     "games/magic/src/presentation/canvas-fonts.ts": {
       "before": null,
@@ -64,28 +64,28 @@
       "after": "a4ebe89e2559f716526d43bfe36360a8095f0d50fa9af019659381b64eb67746"
     },
     "games/magic/src/presentation/face-layout.ts": {
-      "before": "81ed0fe3d1453d1751f70b8d35b79f217eebc74a890d4c058be81d4d170ec960",
-      "after": "d2b1eee77d22b51e8c7771e7f2941a65c39a6bd2f003fd9baf084f004ee2cd7e"
+      "before": "bde9930ab572281c451093bb85146688e05648fbc4efbdb1bc8a129188c5ce0f",
+      "after": "324db45d5cf05996ddc17c644b2aeb6be4ffaf2158773a0e5c1054d956a86cc0"
     },
     "games/magic/src/presentation/flip-template-paint.ts": {
       "before": "4e5d2d0c9962f4aaac9f09a0424b94b561c968d2a8ca983de7f768f5a6456995",
       "after": "7c06ac2bb13066704082f3af4a685c91ae824c570555a1ec9ade633e5aceec5e"
     },
     "games/magic/src/presentation/frame-plate-paint.ts": {
-      "before": "0e7f3a31ccb37fbccd548b9caf1690aa4818b52aa0898d306363531066fdaac0",
-      "after": "30e62c96bd8930f0258ad1b9924a11be321af3b9d92f27e867a0bef02a08442b"
+      "before": "4391552e441e05113afc1d8b57f90cffed32ebbe3559bc8e81ed64eea96996a7",
+      "after": "5a51f54eb2cbe9f20bca1006d5a5e131d0dc36325d2aa29d8c9c9c5280ceec55"
     },
     "games/magic/src/presentation/frame-plates.ts": {
-      "before": "9a1007474831a5e37b965485949552bd6f5e65742b5be466c7f1c3845a5d6ccc",
-      "after": "ccb0127c101ba31b58f41fce8950f2dc88eed0219280facc9f868576fe35b603"
+      "before": "0bc8877010483d71a037ae88d8311db5441d4f9f8faccf9e45bcf2d395d85405",
+      "after": "fd7cde9cdb69c4f5a1d87ee97b99eec3377d5f3f3f8ec866111873dd745bd681"
     },
     "games/magic/src/presentation/future-frame.ts": {
       "before": "523d834e043c14155ca106cb6dd85f5e18c2f0796e2a396e3ca8c7e2bae33745",
       "after": "a51704d29aa7758e2e05a41b309f36e776e927a643eff7c617cfe77770a2a174"
     },
     "games/magic/src/presentation/future-template-paint.ts": {
-      "before": "f7c7802dfdbfd8e380b57e1b0f64b3fc947c707eb5c502c54192c451ca9da1f5",
-      "after": "f701de41ef5ce04768cb0109ee5040dd47d33c482ab8d08f9b39ad9be22739e5"
+      "before": "36aa13e389a65cde7e5e1b89728b3a2323e3894a35ff4a93d91771b8384f0799",
+      "after": "8adab21f01158cc68a8192e157b33cd54268c7d5cd1e411f58333040e37848d7"
     },
     "games/magic/src/presentation/historical-symbol-sources.ts": {
       "before": "c44bfa5c8047c189eb03b34f472f6ce5d5bbe691cc6a474f97377328f18d2e1a",
@@ -116,20 +116,20 @@
       "after": "f30ecf43a0a6096de40c1d563f587a3b8e8517bb3b07a8d67a48a4a2d8f9cae0"
     },
     "games/magic/src/presentation/prepare-paint.ts": {
-      "before": "0826efdc6070f0aa5adf6cefad2a23fde3e01a5cb47574298d7b804dde8cd428",
-      "after": "412a99a572ca01caa3f3698a592d50714e38f19fd368b2e3d04bddcb2dd786d9"
+      "before": "aa6fd130638c8f5e4cea3fcf8575ec11bbdcf8c1843d6ac40eed2197da9bf910",
+      "after": "01b0ad4f4c40ecdf00b485e9015e9e188e5b850ca09ac43a1a34506bb48038c9"
     },
     "games/magic/src/presentation/printing-elements.ts": {
       "before": "80d7488aa166c00c7cf98ba8c7ecf2326485bfa2acc086d8c50fa99da3bd45d8",
       "after": "db6bb4e27a9c040a62baa3e2ba9d1c4c8cc569dc6d30ae9d1072726a670d10ab"
     },
     "games/magic/src/presentation/printing-presets.ts": {
-      "before": "63c33adf58cb3db0738d3d0eb457668fc1608391752e34de5fa6ee6697f39fc6",
-      "after": "3eed66253fe78559e950be6c787f5fef2869cfe3ae6313315cd0bb5f6ccd5cca"
+      "before": "da78ec9d3136a616608a7c146448147a3fd5e351cb3b162dcb605599dbda79c0",
+      "after": "b2887ba741336b071e812dd86ba6b4f0e30d9df3e4f17f1ef5aa036685edec00"
     },
     "games/magic/src/presentation/printing-style.ts": {
-      "before": "735d5a8afea6df7eead67b687f39d22a108f7eeaab48b401396c6b6ab86385be",
-      "after": "d621c01f7169df6127a9716275261d01e42bd93e4bbb5f02f0156eebb20db3b0"
+      "before": "4f7d490ca799f3e8c221354b75fd94b243942045e37df93d1be4c30f9478f8d6",
+      "after": "d71425202e449747f94101b4021177305dd82163bedc059ce1a04055f82d4ac5"
     },
     "games/magic/src/presentation/profile.ts": {
       "before": "85a4a5938be19e69e6165de6e40e538a0b40a7a551f080025fdd8ba25d68ca7e",
@@ -144,8 +144,8 @@
       "after": "a4dd2277294f86c555563a791e198129d9d4d1fdbc5583534b234743134dbe37"
     },
     "games/magic/src/presentation/retro-paint.ts": {
-      "before": "011bd00a200a7f6dd7d98b84b7734cc88bda4f43d1e670aa7efaf8841a709de4",
-      "after": "ea5c12b42947d741d02553ade3b09021f15c7fa5a48701a3f47c5e1bebc2d2ca"
+      "before": "9a7a1072c53594e30bd767b758477cce18fc873c250d431700c8aa626a0a5f4a",
+      "after": "4e0d4d7fe3ce6f6f0a013ab7748996bc269620d8d902f5972dd01921de39ed08"
     },
     "games/magic/src/presentation/retro-urza-footer.ts": {
       "before": "5e00281721be617f0581d6ecaf2117397c121f7e14a9e0bd84ab15874232b961",
@@ -172,8 +172,8 @@
       "after": "35af56bf334eee86dadd7d0f46a61ddf1521710fbc5a4d7094bf958c409259c6"
     },
     "games/magic/src/presentation/saga-paint.ts": {
-      "before": "1978790fd04f14ae14b5ddee39c6aafd8499adfe1d833caa401afcebbbc9434e",
-      "after": "d97413d6b2abfe62b1f33bfe615ccad82a39e830e87f9bf958d6b7f376fda6e7"
+      "before": "59de1b6fa07e870609c4fa6fca86dfefe7570399be88cb557d886a674d17dab7",
+      "after": "71c0ecb0d23ff99eee8ef8483f1e31b12d3e72646f11dc65fb2eb372138fee63"
     },
     "games/magic/src/presentation/saga-rules.ts": {
       "before": "1e163d2f85c23351f58769bec07dba1cd85616671836c457f6a54ce28f53050f",
@@ -196,16 +196,16 @@
       "after": "406b618725672d3fec94bfa59edd8e064932c66b0e8755b4008699d5dc2a81ca"
     },
     "games/magic/src/presentation/split-modern-paint.ts": {
-      "before": "187298351e0b1ac00f3e423c9d7a2e6d3a1a1e369f41cbca345de9e283db8bb5",
-      "after": "6e7184d0d34e4b99d0ee15ca80711a57a360d7c3b37d1c1e65f9b29dddb8a53a"
+      "before": "21215a5edef244413d9433748510cdb0709dd98a6c08fa5ef7d6ca59663a8f7a",
+      "after": "2e877848153d34df9a6aaf703e12f12f3edc373b98526c78ab6cc8b31f1c72cd"
     },
     "games/magic/src/presentation/split-paint.ts": {
       "before": "fbe11ef3e087ffcd1a0795c902d8b1e421b500d3e1432cb5d5d7f5e6490c9120",
       "after": "ce96855ca61e85369d964d6c8daf653d8c3de410e29e304843114679d5dba214"
     },
     "games/magic/src/presentation/standard-frame-paint.ts": {
-      "before": "4d330885bfea56fd0d5d9f48f472be0917891de5082361f408dca7293fcbd04b",
-      "after": "15d4362adb71c346e674806b9409ac485b0d37b5537c9309b6f64c537c4cd394"
+      "before": "35b7c58ac1c333c4de3cd0fa2cded842e29a0418a2c99994a6a1bffb08c0cef7",
+      "after": "61e02054ffbd8277b928196684fcdb623f92d22447055323b8559b07e0bc9dd2"
     },
     "games/magic/src/presentation/template-typography.ts": {
       "before": "2586b879688ea6b45923982eb240c036f2cbb734e19e3c8626fce24bef17ec6e",

@@ -121,3 +121,74 @@ source card, the style or its pinned revision, and sparse local overrides. A
 share can embed a style snapshot so later set edits do not change the shared
 printing. The result includes the resolved selection, chosen frame, decision
 source, matched rule and notices for previews, exports and editor explanations.
+
+## Calibration defaults
+
+Frame selection and printing colors are independent. An optional
+`overrides.calibration` works in a preset selection, style defaults, rule defaults,
+card choice, or face choice. The last explicit choice wins as one value:
+
+```ts
+const result = resolvePrintingStyle(card, style, {
+  overrides: { calibration: 'auto' },
+});
+// result.face: render this same value for previews and exports.
+// result.calibration: applied component coverage and provenance.
+```
+
+| Choice                      | Behavior                                                                                                           |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Omitted                     | Retains existing `colorCalibration` behavior.                                                                      |
+| `'printing'`                | Enables exact printing/source calibration only.                                                                    |
+| `'auto'`                    | Enables exact corrections, then fills compatible missing materials from a registered family default.               |
+| `'source'`                  | Disables optional set color/black-point corrections; keeps frame construction, palette, glyph choice and geometry. |
+| `{ profile: 'm21-modern' }` | Uses the compatible M21 frame-color/border donor explicitly; mana still follows its own printing.                  |
+
+The same choice is available as `MagicCard.calibration` for direct callers.
+The policy never changes the card's set, layout, title/type typography, symbol,
+collector data, wording, or illustration. Existing callers do not opt in merely
+by upgrading. The existing `set-hsb-v1` flag and calibration coverage helper keep
+their exact-source semantics for accuracy tools.
+
+`printingCalibrationApiVersion` is `1`. `printingCalibrationProfiles` provides
+immutable profile IDs, labels and revisions. `printingCalibrationOptions(face)`
+adds compatibility reasons for a host's picker. `resolvePrintingCalibration(face)`
+is a pure, synchronous report; `resolvePrintingStyle()` and supported entries from
+`printingStyleOptions()` also include it. All are exported from `card-glint/magic`
+and `card-glint/magic/presentation`.
+
+The report separates frame pigment, text-box pigment, outer border, interior ink,
+and mana colors. Each component reports `measured`, `fallback`, `mixed`, or
+`source`, with the applicable donor/printing ID, revision, assets and border color.
+Mana entries also list corrected symbol keys. This describes corrections, not a
+whole-card accuracy guarantee. `source` can include an already suitable source
+asset for which no correction is applied.
+
+The initial registered family default is M21 modern. Automatic mode leaves early,
+Eighth, flip and Futureshifted families on their exact printing corrections until
+compatible defaults are reviewed. It supplies the M21 outer-border target
+(`#16130e`) to supported modern faces, including modal/transform sides,
+planeswalkers, Sagas, Adventures, Prepared, Rooms, splits, Aftermath and Battles.
+White and silver borders remain distinct. Modern full plates use an edge-connected
+neutral-stock selection in their own source coordinates; interior black ink and
+colored textures are excluded. Shared component color adjustments transfer only
+by identical pinned asset URL. No ordinary paper rectangle is transferred to a
+different special-frame source. Unknown textures and interior ink keep their
+source values and are reported as such.
+
+Resolve physical front/back selections separately. Composite panels keep their
+native painter and source assets; a policy changes the physical face's appearance,
+not its panel geometry. A newer exact printing fit wins over automatic defaults.
+Store the choice, not copies of calibration tables. Save the renderer version and
+report alongside exported diagnostics when reproducibility matters.
+
+All corrections run during cached material preparation. Cache identity includes
+the explicit policy and complete resolved material adjustments. Animation does
+not decode assets, read masks, or recolor pixels.
+
+The legacy regression receipt records complete PNG hashes against 0.4.9. Its
+companion source-extension receipt binds the new modules and reversibly
+reconstructs the old guarded modules. Historical calibration receipts keep their
+original source hashes and scores; the compatibility guard does not claim that
+fallback modes have been calibrated against those scans. The separate policy
+suite exercises the current implementation directly.

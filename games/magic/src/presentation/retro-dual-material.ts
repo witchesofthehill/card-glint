@@ -1,7 +1,7 @@
 import type { RenderedCardInput } from './face-layout.js';
 import type { CanvasImages } from './canvas-assets.js';
 import { retroDualBitmapCache } from './material-bitmap-cache.js';
-import { calibratedFrameMaterials } from './calibration-profiles.js';
+import { calibratedFrameMaterials } from './printing-calibration-materials.js';
 import { retroDualFrame, retroLandColors } from './retro-dual-frame.js';
 import { colorAbuDualPinline } from './abu-dual-pinline.js';
 import { isRevisedLand } from './revised-land-frame.js';

@@ -1,5 +1,5 @@
 import { paintTextInk } from './text-ink.js';
-import { calibratedPrintingStock } from './calibration-profiles.js';
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import { paintPrintingElement } from './printing-elements.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput, FaceRect } from './face-layout.js';

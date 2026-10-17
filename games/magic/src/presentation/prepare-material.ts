@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput } from './face-layout.js';
 import { resolveCardProfile } from './profile.js';
@@ -101,7 +102,7 @@ export function prepareFrameImage(face: RenderedCardInput, images: CanvasImages)
   if (legendary) {
     c.save();
     c.scale(w / 488, h / 680);
-    c.fillStyle = '#000';
+    c.fillStyle = calibratedPrintingStock(face) ?? '#000';
     c.fillRect(19.2, 18.8, 449.6, 12.1);
     const crowns = colors.length === 2 ? colors : [prepareMaterial(face)];
     c.drawImage(required(prepareCrown(crowns[0]!)), 13.4, 13, 461.4, 113.4);

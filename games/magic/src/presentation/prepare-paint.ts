@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput } from './face-layout.js';
 import { PREPARE_RECTS, preparedSpell } from './prepare-frame.js';
@@ -100,7 +101,7 @@ export function paintPrepareFace(
 ) {
   preparedSpell(face);
   c.save();
-  c.fillStyle = '#000';
+  c.fillStyle = calibratedPrintingStock(face) ?? '#000';
   c.fillRect(0, 0, 488, 680);
   if (underArt) c.drawImage(underArt, 0, 0, 488, 680);
   if (layer !== 'artwork') paintPrepareFrame(c, face, images);

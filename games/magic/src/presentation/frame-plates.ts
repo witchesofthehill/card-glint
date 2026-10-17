@@ -157,6 +157,10 @@ export function framePlateUrls(face: RenderedCardInput): string[] | null {
     ...(plate.pinlines ? Object.values(plate.pinlines) : []),
     ...(face.power != null && face.toughness != null ? [plate.pt] : []),
     ...(cardStock(face.setCode, face.borderColor).border !== '#090806' ||
+    (face.frameAssetFamily === 'm15-accurate' &&
+      face.calibration !== undefined &&
+      face.calibration !== 'source' &&
+      face.calibration !== 'printing') ||
     planarCalibratedStock(face, plate.frame) ||
     hasPrintingStockCandidate(face)
       ? [plate.border]

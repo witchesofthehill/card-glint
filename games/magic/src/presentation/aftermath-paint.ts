@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import { SECURITY_STAMP_RECTS } from './security-stamp-geometry.js';
 import { hasOvalSecurityStamp } from './security-stamp-policy.js';
 import type { CanvasImages } from './canvas-assets.js';
@@ -91,7 +92,7 @@ export function paintAftermathFace(
     return image;
   };
   c.save();
-  c.fillStyle = '#090806';
+  c.fillStyle = calibratedPrintingStock(face) ?? '#090806';
   c.fillRect(0, 0, 488, 680);
   if (underArt) c.drawImage(underArt, 0, 0, 488, 680);
   if (layer !== 'artwork') {

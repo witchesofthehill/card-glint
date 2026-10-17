@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { root, sourceHash } from '../games/magic/tools/accuracy/common.mjs';
 
-export const nativeReference = '8000228d77c91ceed98e604c50290aac4271ba7e';
+export const nativeReference = 'a79aa84a6a95375a56ab174903e699baa2ee5387';
 let repository;
 let materialized;
 

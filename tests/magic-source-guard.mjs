@@ -1,3 +1,4 @@
+import { calibrationLegacySource } from './magic-calibration-source-guard.mjs';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { hash } from '../games/magic/tools/accuracy/common.mjs';
@@ -22,5 +23,5 @@ export async function assertCacheOnlySourceBytes(file, bytes, expected) {
 }
 
 export async function assertMagicSourceHash(file, expected) {
-  await assertCacheOnlySourceBytes(file, await readFile(file), expected);
+  await assertCacheOnlySourceBytes(file, await calibrationLegacySource(file), expected);
 }

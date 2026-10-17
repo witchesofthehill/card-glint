@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import { SECURITY_STAMP_RECTS } from './security-stamp-geometry.js';
 import { hasOvalSecurityStamp } from './security-stamp-policy.js';
 import type { CanvasImages } from './canvas-assets.js';
@@ -15,7 +16,7 @@ export function paintModernSplitFrames(
   face: RenderedCardInput,
   images: CanvasImages,
 ) {
-  c.fillStyle = '#000';
+  c.fillStyle = calibratedPrintingStock(face) ?? '#000';
   c.fillRect(0, 0, 488, 680);
   const panels = splitPanels(face);
   const plates = panels.map((panel) => modernSplitImage(panel.face, images));

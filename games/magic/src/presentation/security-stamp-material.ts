@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import type { CanvasImages } from './canvas-assets.js';
 import { cardStock, type RenderedCardInput } from './face-layout.js';
 import { mountedSecurityStamp } from './security-stamp-paint.js';
@@ -11,6 +12,9 @@ export function securityStampMaterialJobs(face: RenderedCardInput, images: Canva
   if (!stamp) return [];
   const blackStock = cardStock(face.setCode, face.borderColor).border === '#090806';
   if (!blackStock && !stamp.rightImage) return [];
+  const target =
+    face.calibration === undefined ? '#090806' : (calibratedPrintingStock(face) ?? '#090806');
+  const rgb = [1, 3, 5].map((i) => parseInt(target.slice(i, i + 2), 16));
   const source = images.get(stamp.image);
   if (!source) throw Error('Authenticity stamp asset is unavailable.');
   const right = stamp.rightImage ? images.get(stamp.rightImage) : undefined;
@@ -21,10 +25,11 @@ export function securityStampMaterialJobs(face: RenderedCardInput, images: Canva
     {
       url: stamp.image,
       key: JSON.stringify([
-        'security-stamp-frame-palette-v4',
+        'security-stamp-frame-palette-v5',
         stamp.image,
         stamp.rightImage ?? null,
         blackStock,
+        target,
         source.width,
         source.height,
       ]),
@@ -50,9 +55,9 @@ export function securityStampMaterialJobs(face: RenderedCardInput, images: Canva
             const maximum = Math.max(pixels.data[i]!, pixels.data[i + 1]!, pixels.data[i + 2]!);
             if (maximum >= 24) continue;
             const weight = (1 - maximum / 24) ** 2;
-            pixels.data[i] = pixels.data[i]! + 9 * weight;
-            pixels.data[i + 1] = pixels.data[i + 1]! + 8 * weight;
-            pixels.data[i + 2] = pixels.data[i + 2]! + 6 * weight;
+            pixels.data[i] = pixels.data[i]! + rgb[0]! * weight;
+            pixels.data[i + 1] = pixels.data[i + 1]! + rgb[1]! * weight;
+            pixels.data[i + 2] = pixels.data[i + 2]! + rgb[2]! * weight;
           }
           c.putImageData(pixels, 0, 0);
           return await createImageBitmap(canvas);

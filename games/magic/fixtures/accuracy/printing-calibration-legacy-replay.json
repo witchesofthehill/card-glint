@@ -1,0 +1,684 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "8000228d77c91ceed98e604c50290aac4271ba7e",
+  "scope": "Full native Chromium PNG replay, existing set-hsb-v1 callers without the optional calibration policy. Original cached source assets and identical inputs on both versions.",
+  "cards": 84,
+  "changed": 0,
+  "sourceGuards": {
+    "games/magic/src/presentation/calibration-input.ts": "0fb2aa26b19e999a7d41173f6919f14152ff5607bf52e508cc6103bef777e625"
+  },
+  "rows": [
+    {
+      "id": "d5c83259-9b90-47c2-b48e-c7d78519e792",
+      "set": "lea",
+      "name": "Animate Wall",
+      "sha256": "9bd3d05bb2fbb832f5c98ad1f5930e722cd965629801967dd6e77458672a6567",
+      "after": "9bd3d05bb2fbb832f5c98ad1f5930e722cd965629801967dd6e77458672a6567",
+      "identical": true
+    },
+    {
+      "id": "69c3b2a3-0daa-4d42-832d-fcdfda6555ea",
+      "set": "lea",
+      "name": "Air Elemental",
+      "sha256": "c3ff7a2daec126d66c7c6525c8cc5bf7cd5dbcaf0aad31b22755bd4922b41158",
+      "after": "c3ff7a2daec126d66c7c6525c8cc5bf7cd5dbcaf0aad31b22755bd4922b41158",
+      "identical": true
+    },
+    {
+      "id": "8fd7861d-925f-4b4c-a4ab-60be6f43d50b",
+      "set": "lea",
+      "name": "Animate Dead",
+      "sha256": "e9d7f5b7c936d333c80b569bee91e6233ec03de65313fc99c9a77e56f51b3e07",
+      "after": "e9d7f5b7c936d333c80b569bee91e6233ec03de65313fc99c9a77e56f51b3e07",
+      "identical": true
+    },
+    {
+      "id": "a14c05e4-8df3-450b-8a98-5028e73b14c1",
+      "set": "lea",
+      "name": "Burrowing",
+      "sha256": "56cadda22ba8a82308664f76a41fac041adfdc557a2eb60c9714a5d42eada592",
+      "after": "56cadda22ba8a82308664f76a41fac041adfdc557a2eb60c9714a5d42eada592",
+      "identical": true
+    },
+    {
+      "id": "fd9ac9e6-1395-4fbd-80e2-645f0d910c29",
+      "set": "lea",
+      "name": "Aspect of Wolf",
+      "sha256": "aeeeea23e8976e2716d3f1345b9a1fcbdcafbe6ba7783dc9f6f37085cce7f650",
+      "after": "aeeeea23e8976e2716d3f1345b9a1fcbdcafbe6ba7783dc9f6f37085cce7f650",
+      "identical": true
+    },
+    {
+      "id": "f594b7aa-d44e-47c4-989b-565f881e25f1",
+      "set": "lea",
+      "name": "Ankh of Mishra",
+      "sha256": "b277e677c86d058c432b8e50fafc385230e660e166f0e083f62a1a7a81391e76",
+      "after": "b277e677c86d058c432b8e50fafc385230e660e166f0e083f62a1a7a81391e76",
+      "identical": true
+    },
+    {
+      "id": "717f6d10-9144-4ade-9ac6-a481cc66b875",
+      "set": "lea",
+      "name": "Badlands",
+      "sha256": "6e1e1caccd57387502377fd2fc24082412972d7c2b90250c04a7ef3a2072ba72",
+      "after": "6e1e1caccd57387502377fd2fc24082412972d7c2b90250c04a7ef3a2072ba72",
+      "identical": true
+    },
+    {
+      "id": "5c5b4738-20bb-465d-b67e-c6146dce9d0b",
+      "set": "leb",
+      "name": "Animate Wall",
+      "sha256": "e8b4c1f467472c92522428c18ef0c361510c8281847475828c521c9b6596c8d0",
+      "after": "e8b4c1f467472c92522428c18ef0c361510c8281847475828c521c9b6596c8d0",
+      "identical": true
+    },
+    {
+      "id": "36a94a6d-26b1-4486-9444-ec366e6f4d6e",
+      "set": "leb",
+      "name": "Air Elemental",
+      "sha256": "7c94c7f2d83e3d0b5c45cebb2533c189eb2b28989e9942150ffed692efce5272",
+      "after": "7c94c7f2d83e3d0b5c45cebb2533c189eb2b28989e9942150ffed692efce5272",
+      "identical": true
+    },
+    {
+      "id": "20d5059a-60a4-4135-863f-85a48bff8731",
+      "set": "leb",
+      "name": "Animate Dead",
+      "sha256": "79cff3f7ccb5421713a8bb7683556e9a88ffd99960e98e380ad579d5ffe16e44",
+      "after": "79cff3f7ccb5421713a8bb7683556e9a88ffd99960e98e380ad579d5ffe16e44",
+      "identical": true
+    },
+    {
+      "id": "8795bab7-ced2-4a1d-8c57-636bc4c0a977",
+      "set": "leb",
+      "name": "Burrowing",
+      "sha256": "93cf4ae5cf38f536eb5a87112d744076a332b8a2eb6bf407469e52df7d4de202",
+      "after": "93cf4ae5cf38f536eb5a87112d744076a332b8a2eb6bf407469e52df7d4de202",
+      "identical": true
+    },
+    {
+      "id": "36f7dc8e-e02a-4ceb-8767-2875f86e6811",
+      "set": "leb",
+      "name": "Aspect of Wolf",
+      "sha256": "7bcdebad838d023ffc39ca610d9f700a855d8d6b499aa32f56b07789ae8a1ef9",
+      "after": "7bcdebad838d023ffc39ca610d9f700a855d8d6b499aa32f56b07789ae8a1ef9",
+      "identical": true
+    },
+    {
+      "id": "a0367e54-eb07-475a-b06b-f869a046a86c",
+      "set": "leb",
+      "name": "Ankh of Mishra",
+      "sha256": "a3ca970e4e59df45e96a11d75b533913e876e1ecba998cb0289288f34fb25901",
+      "after": "a3ca970e4e59df45e96a11d75b533913e876e1ecba998cb0289288f34fb25901",
+      "identical": true
+    },
+    {
+      "id": "a3393436-3426-4903-8f41-7abcbf6c18c2",
+      "set": "leb",
+      "name": "Badlands",
+      "sha256": "24cffd3fc1dadf9aa1844cf63530fc9463fe05b6fe787a6a067f0fbfb2d37691",
+      "after": "24cffd3fc1dadf9aa1844cf63530fc9463fe05b6fe787a6a067f0fbfb2d37691",
+      "identical": true
+    },
+    {
+      "id": "05d7bed4-950a-4a4e-b79a-50e4aa416fe9",
+      "set": "2ed",
+      "name": "Animate Wall",
+      "sha256": "57af4f8e1c5bf28bebb325be5ffb1955ecd14f3774bd5ccb47add8acee37e10d",
+      "after": "57af4f8e1c5bf28bebb325be5ffb1955ecd14f3774bd5ccb47add8acee37e10d",
+      "identical": true
+    },
+    {
+      "id": "ef5b8140-a157-4c20-a428-fa7250ab34e1",
+      "set": "2ed",
+      "name": "Air Elemental",
+      "sha256": "0225ba2573767b0e31241616151c34b37705fcab5a4d96da8514de6fb80ec79c",
+      "after": "0225ba2573767b0e31241616151c34b37705fcab5a4d96da8514de6fb80ec79c",
+      "identical": true
+    },
+    {
+      "id": "0fc3ed63-96ee-420c-bde1-e0c904059931",
+      "set": "2ed",
+      "name": "Animate Dead",
+      "sha256": "ef5b672e7fdc7511b71d04cd9414188677d905fa28ce63e92f5bdc5b6c08df25",
+      "after": "ef5b672e7fdc7511b71d04cd9414188677d905fa28ce63e92f5bdc5b6c08df25",
+      "identical": true
+    },
+    {
+      "id": "08c109d4-6dd1-42a5-90ed-f8a71b6a0ca5",
+      "set": "2ed",
+      "name": "Burrowing",
+      "sha256": "764b6797be907507677406ed449fbc07f4f3467388c55bddb79cc8c16922cb7c",
+      "after": "764b6797be907507677406ed449fbc07f4f3467388c55bddb79cc8c16922cb7c",
+      "identical": true
+    },
+    {
+      "id": "5aa02bb5-7365-4b8d-ac86-13721fb19d01",
+      "set": "2ed",
+      "name": "Aspect of Wolf",
+      "sha256": "70829acb3620c04f224448a6a3385ebd3b7ca98862f97ddb6ea37f356f95f2a2",
+      "after": "70829acb3620c04f224448a6a3385ebd3b7ca98862f97ddb6ea37f356f95f2a2",
+      "identical": true
+    },
+    {
+      "id": "808cad10-69d5-4e14-9834-476c53ec97e4",
+      "set": "2ed",
+      "name": "Ankh of Mishra",
+      "sha256": "bb85c66f4fa15632d48f8e47744147f43d8b1da7b4069b4334fc4e9654926c10",
+      "after": "bb85c66f4fa15632d48f8e47744147f43d8b1da7b4069b4334fc4e9654926c10",
+      "identical": true
+    },
+    {
+      "id": "5804dcd3-d41d-4cbd-9f8f-9736f2d37a64",
+      "set": "2ed",
+      "name": "Badlands",
+      "sha256": "95b4ff86a4492fd0c8fbae1205f6b744c1dfd3627a3fe52ec15831254c4c7379",
+      "after": "95b4ff86a4492fd0c8fbae1205f6b744c1dfd3627a3fe52ec15831254c4c7379",
+      "identical": true
+    },
+    {
+      "id": "dffd3a5f-066b-40c2-99e0-dba1771c899d",
+      "set": "3ed",
+      "name": "Animate Wall",
+      "sha256": "95325b97907c25f86f4cee3d5d7a449c9cde26981220c354a9eb4fc1e685ba5e",
+      "after": "95325b97907c25f86f4cee3d5d7a449c9cde26981220c354a9eb4fc1e685ba5e",
+      "identical": true
+    },
+    {
+      "id": "22905294-4ba6-4567-a21f-f53b8317acda",
+      "set": "3ed",
+      "name": "Air Elemental",
+      "sha256": "cf01cf4e02b6d921608e45ec8620bfd7cb908b4bb59dc674a07096f2749b654c",
+      "after": "cf01cf4e02b6d921608e45ec8620bfd7cb908b4bb59dc674a07096f2749b654c",
+      "identical": true
+    },
+    {
+      "id": "eed73f84-ad08-44f8-a4fe-cd324ec1da92",
+      "set": "3ed",
+      "name": "Animate Dead",
+      "sha256": "ec7a56c9572acb08aa22b0a30dd9ebe93a79b5a58a6ff8e7d390799f7b52d842",
+      "after": "ec7a56c9572acb08aa22b0a30dd9ebe93a79b5a58a6ff8e7d390799f7b52d842",
+      "identical": true
+    },
+    {
+      "id": "976121fd-a21d-42cd-a7d0-310c8648e307",
+      "set": "3ed",
+      "name": "Atog",
+      "sha256": "1d301126ed560c0463b7c834a8f6d1c654797308881c722ae6d0f25e1cb7f3f0",
+      "after": "1d301126ed560c0463b7c834a8f6d1c654797308881c722ae6d0f25e1cb7f3f0",
+      "identical": true
+    },
+    {
+      "id": "7248db64-c901-4e87-9322-e122d2d32ddc",
+      "set": "3ed",
+      "name": "Aspect of Wolf",
+      "sha256": "183ef058427209bc859fd319b300c5e048775f4920c7c563846cefee6bd4d240",
+      "after": "183ef058427209bc859fd319b300c5e048775f4920c7c563846cefee6bd4d240",
+      "identical": true
+    },
+    {
+      "id": "2c7e444a-dba1-406f-bfdc-1a54102083a8",
+      "set": "3ed",
+      "name": "Aladdin's Lamp",
+      "sha256": "ff844bdf4e97abf6da617ae505b66ea59e2e38fe5da4645dc9dc863494e0c361",
+      "after": "ff844bdf4e97abf6da617ae505b66ea59e2e38fe5da4645dc9dc863494e0c361",
+      "identical": true
+    },
+    {
+      "id": "56058359-3c0b-49db-a0ce-9ded4c3f4372",
+      "set": "3ed",
+      "name": "Badlands",
+      "sha256": "f12af64147f6a84d74d0c488da2c23d0a77d420dabf4c521eed7a35bc5563dee",
+      "after": "f12af64147f6a84d74d0c488da2c23d0a77d420dabf4c521eed7a35bc5563dee",
+      "identical": true
+    },
+    {
+      "id": "51c931a4-297a-4f7f-8f71-6bdcbe4e94b7",
+      "set": "4ed",
+      "name": "Alabaster Potion",
+      "sha256": "854c0ca954019557cf8a7ce98ce73d5b3c04fc5ebb3f675d32796f0673fd2301",
+      "after": "854c0ca954019557cf8a7ce98ce73d5b3c04fc5ebb3f675d32796f0673fd2301",
+      "identical": true
+    },
+    {
+      "id": "e5cfaefb-764c-4c56-bdb3-5f0375168597",
+      "set": "4ed",
+      "name": "Air Elemental",
+      "sha256": "ba59195b0a9f523a7dc543e330c32ddce1dc5947fa6de49ead789642df57f55d",
+      "after": "ba59195b0a9f523a7dc543e330c32ddce1dc5947fa6de49ead789642df57f55d",
+      "identical": true
+    },
+    {
+      "id": "a363bc91-8278-448e-9d5c-564e4b51eb62",
+      "set": "4ed",
+      "name": "Abomination",
+      "sha256": "c5d4ca082064b8fdb99ca5fc8591a3002790799004f210be185d22ecd68c153f",
+      "after": "c5d4ca082064b8fdb99ca5fc8591a3002790799004f210be185d22ecd68c153f",
+      "identical": true
+    },
+    {
+      "id": "92191f72-e3d7-4679-97a2-f0c2d19d7738",
+      "set": "4ed",
+      "name": "Ali Baba",
+      "sha256": "4e83a11c3c8e7651fda125045bfb47dfef623f95e15c6e913bab5b3ad705f9c4",
+      "after": "4e83a11c3c8e7651fda125045bfb47dfef623f95e15c6e913bab5b3ad705f9c4",
+      "identical": true
+    },
+    {
+      "id": "58e780b8-8002-47d4-9d0c-bd65a40ea34e",
+      "set": "4ed",
+      "name": "Aspect of Wolf",
+      "sha256": "7808e109e32d8875a1ed5df303a1d69c9b919b5035238a136fc098bc4dd3ab0e",
+      "after": "7808e109e32d8875a1ed5df303a1d69c9b919b5035238a136fc098bc4dd3ab0e",
+      "identical": true
+    },
+    {
+      "id": "42e7cf40-c136-4fcb-a947-558b713b39f6",
+      "set": "4ed",
+      "name": "Aladdin's Lamp",
+      "sha256": "e4ddf0f7241fb48cb4993a1545b29eabc44238487c05308a6b4186db540277c5",
+      "after": "e4ddf0f7241fb48cb4993a1545b29eabc44238487c05308a6b4186db540277c5",
+      "identical": true
+    },
+    {
+      "id": "aff8d4f1-eaad-4afb-9097-2afab133f707",
+      "set": "4ed",
+      "name": "Mishra's Factory",
+      "sha256": "c2e46bbc238805e563fc7936dc5d9f791f08f8e5d6f9d370be8aa945b9c28668",
+      "after": "c2e46bbc238805e563fc7936dc5d9f791f08f8e5d6f9d370be8aa945b9c28668",
+      "identical": true
+    },
+    {
+      "id": "4644694d-52e6-4d00-8cad-748899eeea84",
+      "set": "mir",
+      "name": "Afterlife",
+      "sha256": "77b56f435cca02cd5e0ef27deb6eb848d661b23b46410ea60d58254b6491e8c1",
+      "after": "77b56f435cca02cd5e0ef27deb6eb848d661b23b46410ea60d58254b6491e8c1",
+      "identical": true
+    },
+    {
+      "id": "b1d1298b-9f56-4540-8d6b-7eecfe38cf62",
+      "set": "mir",
+      "name": "Ancestral Memories",
+      "sha256": "da104ea0c00490079b2ecfc1de4d6bb6dedf59cfcca70670257f29ddaaa3ae56",
+      "after": "da104ea0c00490079b2ecfc1de4d6bb6dedf59cfcca70670257f29ddaaa3ae56",
+      "identical": true
+    },
+    {
+      "id": "08798c53-46f3-4a51-9284-491730605b2b",
+      "set": "mir",
+      "name": "Abyssal Hunter",
+      "sha256": "a462dc37b9b6a64e12bebb8532c8f7afd85bca767e4a1699ff7b96ee5d2bc1d7",
+      "after": "a462dc37b9b6a64e12bebb8532c8f7afd85bca767e4a1699ff7b96ee5d2bc1d7",
+      "identical": true
+    },
+    {
+      "id": "5694cb42-7489-40c5-b21a-aeb36636015f",
+      "set": "mir",
+      "name": "Agility",
+      "sha256": "7d1cf532533fa1062bbfc8614add07822dfddda97dd128db977ee36ddf3d3f2e",
+      "after": "7d1cf532533fa1062bbfc8614add07822dfddda97dd128db977ee36ddf3d3f2e",
+      "identical": true
+    },
+    {
+      "id": "c495e1f3-0845-4556-83e6-de8b9d518d1d",
+      "set": "mir",
+      "name": "Afiya Grove",
+      "sha256": "2161490b7d12f7972cd0ff9d6c8b8c7ca99bb495c4844d76dc179c09d58c0c1c",
+      "after": "2161490b7d12f7972cd0ff9d6c8b8c7ca99bb495c4844d76dc179c09d58c0c1c",
+      "identical": true
+    },
+    {
+      "id": "6dfdea79-2a7c-489d-8466-e6090c2a0919",
+      "set": "mir",
+      "name": "Acidic Dagger",
+      "sha256": "cd9bdd4b45f01784cd3b2f9c7de6d2b521b74530c081595f9bebbacd7ea3e10a",
+      "after": "cd9bdd4b45f01784cd3b2f9c7de6d2b521b74530c081595f9bebbacd7ea3e10a",
+      "identical": true
+    },
+    {
+      "id": "7a78abdb-d1ac-49cb-a74b-9de21c06364a",
+      "set": "mir",
+      "name": "Bad River",
+      "sha256": "44cd6696d1a7ae386bf44799f5dcbe918d7b7f6424e3b3926a0a9aeb44b71a3b",
+      "after": "44cd6696d1a7ae386bf44799f5dcbe918d7b7f6424e3b3926a0a9aeb44b71a3b",
+      "identical": true
+    },
+    {
+      "id": "81ce7e1e-ffe5-4ced-8967-9a6917245240",
+      "set": "tmp",
+      "name": "Advance Scout",
+      "sha256": "35f62dcf460db524f2e3b13679dce708f18ac25c609982b536e987f5565ffca6",
+      "after": "35f62dcf460db524f2e3b13679dce708f18ac25c609982b536e987f5565ffca6",
+      "identical": true
+    },
+    {
+      "id": "cc9fb7b6-d20c-4c08-9dae-4ccc9138b662",
+      "set": "tmp",
+      "name": "Benthic Behemoth",
+      "sha256": "bb960e213c9237b2c8136b75d0663343b236017100c075ed9b430f88157f502b",
+      "after": "bb960e213c9237b2c8136b75d0663343b236017100c075ed9b430f88157f502b",
+      "identical": true
+    },
+    {
+      "id": "942cf220-472c-48f6-8f60-993939ea5ab8",
+      "set": "tmp",
+      "name": "Abandon Hope",
+      "sha256": "66d83e858c57b1b4619e5b7399491404cdf46c21b5b402c20502e8614699ddcc",
+      "after": "66d83e858c57b1b4619e5b7399491404cdf46c21b5b402c20502e8614699ddcc",
+      "identical": true
+    },
+    {
+      "id": "c91a26b2-03f8-43f0-a3a4-ff6c5a3690c4",
+      "set": "tmp",
+      "name": "Aftershock",
+      "sha256": "af8d59582be28d9a33628969c097ed5198884f0c5972cadc58e95f789e270e1b",
+      "after": "af8d59582be28d9a33628969c097ed5198884f0c5972cadc58e95f789e270e1b",
+      "identical": true
+    },
+    {
+      "id": "268403bc-733d-446e-a7c1-abc957c42bc2",
+      "set": "tmp",
+      "name": "Aluren",
+      "sha256": "d055c8680006dc19765fca98ed243adc63f47e01f089116c668791a7dadccb6a",
+      "after": "d055c8680006dc19765fca98ed243adc63f47e01f089116c668791a7dadccb6a",
+      "identical": true
+    },
+    {
+      "id": "4f2da99f-3c53-4980-97d6-2158c765aac0",
+      "set": "tmp",
+      "name": "Altar of Dementia",
+      "sha256": "2d38d081a7fb8df1f59aeed5e428f4cf7ee8eda2744d1e7cf425d4e6123aa83a",
+      "after": "2d38d081a7fb8df1f59aeed5e428f4cf7ee8eda2744d1e7cf425d4e6123aa83a",
+      "identical": true
+    },
+    {
+      "id": "30e401e3-282b-4524-87e1-c6cd50cd6d00",
+      "set": "tmp",
+      "name": "Ancient Tomb",
+      "sha256": "8d54bf589b700565911e62610116688d740c361156ad5c0c7ddbd6b7a5195889",
+      "after": "8d54bf589b700565911e62610116688d740c361156ad5c0c7ddbd6b7a5195889",
+      "identical": true
+    },
+    {
+      "id": "f9302ba8-7ff2-4eaa-a32d-eedd94f0bb79",
+      "set": "m15",
+      "name": "Ajani Steadfast",
+      "sha256": "325236043a656863ab8f833c7411c57694ec88e6557da47c72d64866d37dd099",
+      "after": "325236043a656863ab8f833c7411c57694ec88e6557da47c72d64866d37dd099",
+      "identical": true
+    },
+    {
+      "id": "e145e85d-1eaa-4ec6-9208-ca6491577302",
+      "set": "m15",
+      "name": "Aeronaut Tinkerer",
+      "sha256": "592b2f91332757174e942934f3722d1d92dee5ccfa6e60c459acee16b50c19de",
+      "after": "592b2f91332757174e942934f3722d1d92dee5ccfa6e60c459acee16b50c19de",
+      "identical": true
+    },
+    {
+      "id": "2513fe72-4e20-49e6-9970-839f1c635792",
+      "set": "m15",
+      "name": "Accursed Spirit",
+      "sha256": "31e21715f0011937883d0639120c9bc4c081c8377eea03e34a77fa3a3c2c680a",
+      "after": "31e21715f0011937883d0639120c9bc4c081c8377eea03e34a77fa3a3c2c680a",
+      "identical": true
+    },
+    {
+      "id": "bfe513d1-2509-4051-ba85-49a19479fa5c",
+      "set": "m15",
+      "name": "Act on Impulse",
+      "sha256": "903d0a1a947bee0336dd7c0193c25b82b3b6370ef8d259b6347a6c813ff156e8",
+      "after": "903d0a1a947bee0336dd7c0193c25b82b3b6370ef8d259b6347a6c813ff156e8",
+      "identical": true
+    },
+    {
+      "id": "7b24ea58-0690-45d7-a84b-265b6277b59a",
+      "set": "m15",
+      "name": "Ancient Silverback",
+      "sha256": "87e93dccc613fee8171e614f4cbf902d8718fe812dc33bc3a254f67e25f3ab8f",
+      "after": "87e93dccc613fee8171e614f4cbf902d8718fe812dc33bc3a254f67e25f3ab8f",
+      "identical": true
+    },
+    {
+      "id": "ec56727f-6280-4625-96b9-9b599af0dada",
+      "set": "m15",
+      "name": "Avarice Amulet",
+      "sha256": "2f5440ecb0ebec582b761c3647f370535a7fdc058c1387b970d4721923cca5ce",
+      "after": "2f5440ecb0ebec582b761c3647f370535a7fdc058c1387b970d4721923cca5ce",
+      "identical": true
+    },
+    {
+      "id": "1dc57d63-5a6d-4ff2-8079-544b2c4eade1",
+      "set": "m15",
+      "name": "Battlefield Forge",
+      "sha256": "eda817f60334a3fd39dc43393e19624b71dab2fb50004261b5f03438396feeda",
+      "after": "eda817f60334a3fd39dc43393e19624b71dab2fb50004261b5f03438396feeda",
+      "identical": true
+    },
+    {
+      "id": "0503c55d-74bb-4165-9273-127c01bb2214",
+      "set": "m19",
+      "name": "Aegis of the Heavens",
+      "sha256": "e2aa268029b4e09d877f3854d021c3b82a88cf9b6e9099d6198853932d9bc5f6",
+      "after": "e2aa268029b4e09d877f3854d021c3b82a88cf9b6e9099d6198853932d9bc5f6",
+      "identical": true
+    },
+    {
+      "id": "5d6178ed-6353-4733-81e1-7b3dc592c3bd",
+      "set": "m19",
+      "name": "Aether Tunnel",
+      "sha256": "ffd930791fcf6fd9784862ece21325c83a3ff754c9ff2aa0e5c74f8034bf583c",
+      "after": "ffd930791fcf6fd9784862ece21325c83a3ff754c9ff2aa0e5c74f8034bf583c",
+      "identical": true
+    },
+    {
+      "id": "de2de2bd-9ba7-4b6f-94c2-dafb2011a48e",
+      "set": "m19",
+      "name": "Abnormal Endurance",
+      "sha256": "6996f1eb5c80d045736bb2b6018fb73b8eced1c1da9caabe6c3a28a9ccfca3a6",
+      "after": "6996f1eb5c80d045736bb2b6018fb73b8eced1c1da9caabe6c3a28a9ccfca3a6",
+      "identical": true
+    },
+    {
+      "id": "9160dde8-cd77-4967-a5f3-a676376c58f7",
+      "set": "m19",
+      "name": "Act of Treason",
+      "sha256": "f988866f6e01858b210a7c207f68c6655003ac81f87b159b82f50e26e5345155",
+      "after": "f988866f6e01858b210a7c207f68c6655003ac81f87b159b82f50e26e5345155",
+      "identical": true
+    },
+    {
+      "id": "1b01d243-9f68-47c7-980b-1418e5f2f3e9",
+      "set": "m19",
+      "name": "Blanchwood Armor",
+      "sha256": "a9674e518ba79b505128b1aae7c38fe808b95214d8495ec2d44aa97e550434fc",
+      "after": "a9674e518ba79b505128b1aae7c38fe808b95214d8495ec2d44aa97e550434fc",
+      "identical": true
+    },
+    {
+      "id": "d45ac8dc-281f-4257-9658-80af65a0295b",
+      "set": "m19",
+      "name": "Amulet of Safekeeping",
+      "sha256": "f00dd6b00bed43acbfa98e56f387db99aeaedc3163f68da2c7953f1c22c091d8",
+      "after": "f00dd6b00bed43acbfa98e56f387db99aeaedc3163f68da2c7953f1c22c091d8",
+      "identical": true
+    },
+    {
+      "id": "db41b554-2bb1-4f11-be29-233d36cc955a",
+      "set": "m19",
+      "name": "Cinder Barrens",
+      "sha256": "50140ad69ac9526d026683b4e8936b30e6c07ac0564ae285eabb6788ebfacc87",
+      "after": "50140ad69ac9526d026683b4e8936b30e6c07ac0564ae285eabb6788ebfacc87",
+      "identical": true
+    },
+    {
+      "id": "64d9c182-cbb3-4791-90dd-0e533ddeebda",
+      "set": "m20",
+      "name": "Aerial Assault",
+      "sha256": "8ddb3d1ddbfbda0ed2f42b352d0cc8e489a8b8cb1203c638da53fa17829e62fb",
+      "after": "8ddb3d1ddbfbda0ed2f42b352d0cc8e489a8b8cb1203c638da53fa17829e62fb",
+      "identical": true
+    },
+    {
+      "id": "783da808-6698-4e55-9fac-430a6effe2b1",
+      "set": "m20",
+      "name": "Aether Gust",
+      "sha256": "b95b2f97d79ff13ba929515f92519daffc252588e455584fb1b31d49f1d0763f",
+      "after": "b95b2f97d79ff13ba929515f92519daffc252588e455584fb1b31d49f1d0763f",
+      "identical": true
+    },
+    {
+      "id": "0d8efd95-1c2f-4dd1-b70b-3cfb10ff3a28",
+      "set": "m20",
+      "name": "Agonizing Syphon",
+      "sha256": "e74ab476d4306997dce4ce1df5bb337d288f5ccdbe6d8397548fa2874bc5941a",
+      "after": "e74ab476d4306997dce4ce1df5bb337d288f5ccdbe6d8397548fa2874bc5941a",
+      "identical": true
+    },
+    {
+      "id": "20234668-53ce-4cc8-892f-30ee3ecfc34c",
+      "set": "m20",
+      "name": "Act of Treason",
+      "sha256": "bf00b21118f73b1e45531770d9d79e18c4db277da98548431b680a79094b5706",
+      "after": "bf00b21118f73b1e45531770d9d79e18c4db277da98548431b680a79094b5706",
+      "identical": true
+    },
+    {
+      "id": "0cfd2e76-ad64-42ff-a6a2-c4cf1bec5932",
+      "set": "m20",
+      "name": "Barkhide Troll",
+      "sha256": "0c4eff58decfb1aba67265a5516362e865b24285ae3650e30095ba92d8bbb609",
+      "after": "0c4eff58decfb1aba67265a5516362e865b24285ae3650e30095ba92d8bbb609",
+      "identical": true
+    },
+    {
+      "id": "2ba18114-af6c-48cd-82c9-eb6541d566bf",
+      "set": "m20",
+      "name": "Ancestral Blade",
+      "sha256": "cc866f02e8ccab6b47ed12db5e3911c161e5c84e8b3913b457135165021aa0af",
+      "after": "cc866f02e8ccab6b47ed12db5e3911c161e5c84e8b3913b457135165021aa0af",
+      "identical": true
+    },
+    {
+      "id": "9b7ec5a3-3c40-4090-b9e3-11fb5b06fb8f",
+      "set": "m20",
+      "name": "Bloodfell Caves",
+      "sha256": "d1c7f1545419921e000084beb24b1adaf551217d000d61f43e5a7488627abb81",
+      "after": "d1c7f1545419921e000084beb24b1adaf551217d000d61f43e5a7488627abb81",
+      "identical": true
+    },
+    {
+      "id": "c392a7e5-6ff5-4c2f-9590-f8811a724f44",
+      "set": "m21",
+      "name": "Alpine Watchdog",
+      "sha256": "2a4aaab54f78dd0aac527e38c784a80c40c09fdf9032a459db23862522d67105",
+      "after": "2a4aaab54f78dd0aac527e38c784a80c40c09fdf9032a459db23862522d67105",
+      "identical": true
+    },
+    {
+      "id": "cb078fbb-beb9-4c0b-be93-ed1e73e6f8d8",
+      "set": "m21",
+      "name": "Barrin, Tolarian Archmage",
+      "sha256": "af32a1b0ae81b39d95d037434684cc4d8b897509496144622f0b37ef5861961e",
+      "after": "af32a1b0ae81b39d95d037434684cc4d8b897509496144622f0b37ef5861961e",
+      "identical": true
+    },
+    {
+      "id": "6e4c9574-1ee3-461e-848f-8f02c6a8b7ee",
+      "set": "m21",
+      "name": "Alchemist's Gift",
+      "sha256": "47297a1ebb23b7461814d8db4c9a200d67d4df3fbdfd6661d090acb427082de3",
+      "after": "47297a1ebb23b7461814d8db4c9a200d67d4df3fbdfd6661d090acb427082de3",
+      "identical": true
+    },
+    {
+      "id": "faca827d-0b35-48d7-acd6-13ecacc32b82",
+      "set": "m21",
+      "name": "Battle-Rattle Shaman",
+      "sha256": "99ad4b8e295b9e9be4881061fd9770fdaef3b6c3ff32fd1a3e608a7422540112",
+      "after": "99ad4b8e295b9e9be4881061fd9770fdaef3b6c3ff32fd1a3e608a7422540112",
+      "identical": true
+    },
+    {
+      "id": "0b8aff2c-1f7b-4507-b914-53f8c4706b3d",
+      "set": "m21",
+      "name": "Azusa, Lost but Seeking",
+      "sha256": "4a9ec289c875b92312e9866fce5371aee0da77194376429cf9f8aeeda2f6cd39",
+      "after": "4a9ec289c875b92312e9866fce5371aee0da77194376429cf9f8aeeda2f6cd39",
+      "identical": true
+    },
+    {
+      "id": "4d60e84e-be05-49da-9720-4225abe9d003",
+      "set": "m21",
+      "name": "Idol of Endurance",
+      "sha256": "7b9ba941094488f027be4a438dd2e215303115649f208e7afbaeca22ab59fad0",
+      "after": "7b9ba941094488f027be4a438dd2e215303115649f208e7afbaeca22ab59fad0",
+      "identical": true
+    },
+    {
+      "id": "f8d7a2c7-666d-4fc6-bac8-ef8eb66e355d",
+      "set": "m21",
+      "name": "Animal Sanctuary",
+      "sha256": "c34b76a750e8b3ef1ca07f2c9ad3efc8a8448b710352c443e98e7dd47fe0b9ad",
+      "after": "c34b76a750e8b3ef1ca07f2c9ad3efc8a8448b710352c443e98e7dd47fe0b9ad",
+      "identical": true
+    },
+    {
+      "id": "b3656310-093d-4724-a399-7f7010843b1f",
+      "set": "war",
+      "name": "Ajani's Pridemate",
+      "sha256": "9bc8723cc17ee63e8a37bcbcd6698e8162ef9b7a9ac4d5ec390ff558da311066",
+      "after": "9bc8723cc17ee63e8a37bcbcd6698e8162ef9b7a9ac4d5ec390ff558da311066",
+      "identical": true
+    },
+    {
+      "id": "7dd5b0a1-104d-4e0f-82de-65487fbf01ff",
+      "set": "war",
+      "name": "Ashiok's Skulker",
+      "sha256": "a9c923e405a1c6a8edfca2d8ad16b0ad371603be09c945487644125be2583035",
+      "after": "a9c923e405a1c6a8edfca2d8ad16b0ad371603be09c945487644125be2583035",
+      "identical": true
+    },
+    {
+      "id": "5f8bc010-f1af-42a2-9009-2039cf3d8f0a",
+      "set": "war",
+      "name": "Aid the Fallen",
+      "sha256": "f17e973c00393c503fdf0b868dbf1469ef9ab340a4edfd2a7521105843e12b15",
+      "after": "f17e973c00393c503fdf0b868dbf1469ef9ab340a4edfd2a7521105843e12b15",
+      "identical": true
+    },
+    {
+      "id": "2dea2466-5c7f-40ce-b749-100ae89d2c90",
+      "set": "war",
+      "name": "Ahn-Crop Invader",
+      "sha256": "8efea7a6e0ba40b1364175b03acf025cb18d7524e76d35edfd19bf9cc42c2780",
+      "after": "8efea7a6e0ba40b1364175b03acf025cb18d7524e76d35edfd19bf9cc42c2780",
+      "identical": true
+    },
+    {
+      "id": "c4a5f86f-44a8-4735-909a-770586d33a15",
+      "set": "war",
+      "name": "Arboreal Grazer",
+      "sha256": "e045c0b43e49b7ad292f314aa7def4c1c32416cbd9f816d46475a6fd3d6ebffd",
+      "after": "e045c0b43e49b7ad292f314aa7def4c1c32416cbd9f816d46475a6fd3d6ebffd",
+      "identical": true
+    },
+    {
+      "id": "261ba80e-3aca-423e-a0b7-19c2d4b44dbf",
+      "set": "war",
+      "name": "Parhelion II",
+      "sha256": "69a0e24a9751f3a9f42c541b20e0d8c149993734a4d6fedb44361f8a2043693e",
+      "after": "69a0e24a9751f3a9f42c541b20e0d8c149993734a4d6fedb44361f8a2043693e",
+      "identical": true
+    },
+    {
+      "id": "ea6bc7d5-e8f6-4103-920c-9f7ec5cd6c28",
+      "set": "war",
+      "name": "Blast Zone",
+      "sha256": "f7f97d5a22a1af580193d745b710aec0e21c3fb5ae450ea3d8fdd5f97eb6233f",
+      "after": "f7f97d5a22a1af580193d745b710aec0e21c3fb5ae450ea3d8fdd5f97eb6233f",
+      "identical": true
+    }
+  ]
+}

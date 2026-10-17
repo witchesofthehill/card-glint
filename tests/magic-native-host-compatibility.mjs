@@ -17,7 +17,7 @@ import {
   readNativeReference,
 } from './magic-native-reference.mjs';
 import { nativeHostCases } from './magic-native-host-cases.mjs';
-import { assertMagicSourceHash } from './magic-source-guard.mjs';
+import { assertCacheOnlySourceBytes } from './magic-source-guard.mjs';
 
 let verification;
 const sourceManifestFile = new URL('./magic-native-host-sources.json', import.meta.url);
@@ -102,7 +102,12 @@ async function verify() {
   assert.equal(nativeHostSources.reference, nativeReference);
   const rulesFile = 'games/magic/src/presentation/rules-paint.ts';
   await assert.rejects(
-    () => assertMagicSourceHash(rulesFile, nativeHostSources.files[rulesFile].before),
+    async () =>
+      assertCacheOnlySourceBytes(
+        rulesFile,
+        await readFile(path.join(root, rulesFile)),
+        nativeHostSources.files[rulesFile].before,
+      ),
     /Unproven source change|No verified cache-only ancestry|Painter changed/,
     'A visibility hook is not a cache-only source replacement',
   );

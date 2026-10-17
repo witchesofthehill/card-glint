@@ -1,3 +1,4 @@
+import { calibratedPrintingStock } from './printing-calibration-materials.js';
 import type { CanvasImages } from './canvas-assets.js';
 import type { RenderedCardInput, FaceRect } from './face-layout.js';
 import { faceSetSymbol } from './assets.js';
@@ -37,7 +38,7 @@ export function paintStandardTemplate(
   c.save();
   try {
     if (layer !== 'artwork') {
-      c.fillStyle = '#090806';
+      c.fillStyle = calibratedPrintingStock(face) ?? '#090806';
       c.fillRect(0, 0, 488, 680);
     }
     if (underArt) c.drawImage(underArt, 0, 0, 488, 680);

@@ -199,4 +199,25 @@ for (const [layout, setCode] of [
       },
     ],
   });
+// Exercise 0.4.10's policy paths against that release, not the historical receipts.
+for (const id of [
+  'lea/U',
+  'plc-colorshifted/U',
+  'm21/U',
+  'future/regular',
+  'adventure/eld',
+  'prepare/tst',
+  'split/m21',
+  'aftermath/akh',
+  'saga/chapters',
+])
+  for (const calibration of ['auto', 'printing', 'source'])
+    add(`calibration/${calibration}/${id}`, {
+      ...cases.find((specimen) => specimen.id === id).face,
+      calibration,
+    });
+add('calibration/profile/m21/U', {
+  ...cases.find((specimen) => specimen.id === 'm21/U').face,
+  calibration: { profile: 'm21-modern' },
+});
 export const nativeHostCases = cases;

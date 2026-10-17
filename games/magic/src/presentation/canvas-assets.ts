@@ -1,4 +1,5 @@
 import { fetchCardAsset } from '../fetch.js';
+import { calibrationFace } from './calibration-input.js';
 import { plateBasicSymbol } from './plate-basic-land.js';
 import { futureManaAsset } from './future-mana.js';
 import { standardTemplateAssets } from './standard-frame-templates.js';
@@ -176,6 +177,7 @@ export async function loadCanvasImages(
 }
 
 export function canvasAssetUrls(face: RenderedCardInput): (string | null | undefined)[] {
+  face = calibrationFace(face);
   if (face.frameTemplate)
     return [
       ...standardTemplateAssets(face),
