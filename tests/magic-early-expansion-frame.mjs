@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
+import { assertExpansionSourceHash } from './magic-expansion-source-guard.mjs';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
 
 const server = await createServer({
   configFile: false,
@@ -19,6 +22,39 @@ try {
     ...integration.groups,
     ...Object.fromEntries(Object.entries(red.groups).map(([key, value]) => [key, value.geometry])),
   };
+  const artist = JSON.parse(
+    await readFile('games/magic/fixtures/accuracy/early-expansion-artist.json'),
+  );
+  assert.equal(integration.summary.cards, 316);
+  assert.equal(integration.summary.changed, 282);
+  assert.equal(integration.summary.unchanged, 34);
+  for (const [file, hash] of Object.entries(integration.sourceGuards)) {
+    const extension = artist.sourceExtension[file];
+    if (extension) {
+      assert.equal(extension.before, hash, 'Artist integration must extend the measured painter');
+      assert.equal(artist.native.summary.cards, 316);
+      assert.equal(artist.native.summary.outsideChanged, 0);
+    }
+    await assertExpansionSourceHash(
+      'games/magic/src/presentation/' + file,
+      extension?.after ?? hash,
+    );
+  }
+  for (const [file, hash] of Object.entries(artist.sourceGuards))
+    assert.equal(
+      createHash('sha256')
+        .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+        .digest('hex'),
+      hash,
+      'Artist isolation proof is stale: ' + file,
+    );
+  assert.equal(Object.keys(integration.groups).length, 18);
+  for (const group of Object.values(integration.groups)) {
+    assert.ok(group.native.summary.validation.after > group.native.summary.validation.before);
+    assert.deepEqual(group.native.summary.validation.regressions, []);
+  }
+  assert.equal(receipt.redTextureTrial.status, 'rejected-do-not-adopt');
+  assert.equal(receipt.redTextureTrial.acceptedScanPosesAdded, 0);
   const { earlyExpansionFrame } = await server.ssrLoadModule(
     '/games/magic/src/presentation/early-expansion-frame.ts',
   );

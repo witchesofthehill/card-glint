@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
 import { presentation } from '../games/magic/tools/accuracy/adapter.mjs';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
 
 const receipt = JSON.parse(
   await readFile('games/magic/fixtures/accuracy/early-expansion-wording-frame-compatibility.json'),
@@ -9,7 +11,43 @@ const receipt = JSON.parse(
 const extension = JSON.parse(
   await readFile('games/magic/fixtures/accuracy/early-expansion-input-extension.json'),
 );
-
+const breaks = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/early-expansion-break-inputs.json'),
+);
+const followup = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/early-expansion-followup-wording.json'),
+);
+assert.deepEqual(followup.summary, { earlyPrintings: 316, changedBodies: 5, unchangedM21: 292 });
+assert.equal(followup.inputRows.filter((r) => r.changedBody).length, 5);
+assert.ok(followup.inputRows.every((r) => r.otherFieldsIdentical));
+for (const [file, guard] of Object.entries(receipt.guards)) {
+  const next = extension.guards[file];
+  if (next) assert.equal(next.before, guard.after, 'Compatibility chain must start at prior proof');
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource(file))
+      .digest('hex'),
+    next?.after ?? guard.after,
+    'Stale wording compatibility: ' + file,
+  );
+}
+for (const [file, guard] of Object.entries(extension.guards)) {
+  const next = breaks.guards[file];
+  if (next) assert.equal(next.before, guard.after);
+  const latest = followup.guards[file];
+  if (latest) assert.equal(latest.before, next?.after ?? guard.after);
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource(file))
+      .digest('hex'),
+    latest?.after ?? next?.after ?? guard.after,
+    file,
+  );
+}
+assert.deepEqual(breaks.summary, { earlyPrintings: 316, changedBodies: 7, unchangedM21: 292 });
+assert.equal(breaks.rows.length, 316);
+assert.equal(breaks.rows.filter((row) => row.changedBody).length, 7);
+assert.ok(breaks.rows.every((row) => row.otherFieldsIdentical));
 assert.deepEqual(extension.summary, {
   earlyPrintings: 316,
   changedArtists: 19,

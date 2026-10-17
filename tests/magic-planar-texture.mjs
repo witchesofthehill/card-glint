@@ -1,5 +1,29 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
+
+const evidence = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/planar-frame-texture.json'),
+);
+for (const [file, hash] of Object.entries(evidence.sourceGuards))
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+      .digest('hex'),
+    hash,
+    'Revalidate the texture/bevel balance after material changes',
+  );
+assert.equal(evidence.rows.filter((r) => r.cohort === 'calibration').length, 15);
+assert.equal(evidence.rows.filter((r) => r.cohort === 'validation').length, 29);
+for (const c of 'WUBRG') {
+  const group = evidence.summary[c].validation;
+  assert.ok(group.bevelError.after < group.bevelError.before);
+  assert.equal(evidence.materials[c].alphaChanged, 0);
+  assert.equal(evidence.materials[c].transparentChanged, 0);
+}
+assert.ok(evidence.rows.every((r) => Object.values(r.unchangedPanels).every((v) => v === 0)));
 
 const server = await createServer({
   configFile: false,
@@ -164,7 +188,7 @@ try {
   ])
     assert.notEqual(key(adjustment), key(changed));
   console.log(
-    'PLC texture/bevel balance: isolated selections, monotone tone curves and cache identity pass.',
+    'PLC texture/bevel balance: held-out evidence, isolated selections, monotone tone curves and cache identity pass.',
   );
 } finally {
   await server.close();

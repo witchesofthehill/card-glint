@@ -23,6 +23,9 @@ baseline separately; keep the assertion rather than loosening it during merges.
 No per-frame decoding, font loading, shader compilation, or mask readback.
 Document benchmark scope: CPU submission time is not GPU completion time.
 Never silently use another game's painter or publish partial face revisions.
+Native host hooks must preserve default rendering. Keep historical calibration
+assertions and cache-only ancestry guards intact. Native source fingerprints
+identify reviewed changes; the differential gate checks default pixels and layouts.
 
 The public showcase must load only original repository assets. External art
 reference metadata belongs in its game pack with attribution; do not copy those

@@ -1,6 +1,32 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
+const evidence = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/printing-blackpoints.json'),
+);
+for (const [file, hash] of Object.entries(evidence.sourceGuards))
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+      .digest('hex'),
+    hash,
+    'Black-level calibration evidence is stale: ' + file,
+  );
+assert.equal(evidence.coverage.sets.length, 37);
+assert.equal(evidence.coverage.accepted, 1021);
+assert.equal(evidence.coverage.rejected, 16);
+for (const m of evidence.materials.filter((m) => m.status === 'accepted'))
+  for (const s of Object.values(m.native.summary)) {
+    assert.ok(s.count >= 3 && s.after < s.before - 0.5 && s.after < s.before * 0.9);
+    assert.ok(s.worstRegression <= 1);
+  }
+for (const g of Object.values(evidence.groups)) assert.equal(g.invariants.alphaChanged, 0);
+for (const a of Object.values(evidence.artworkInvariants)) {
+  assert.equal(a.centralArtworkChanged, 0);
+  assert.equal(a.alphaChanged, 0);
+}
 const server = await createServer({
   configFile: false,
   server: { middlewareMode: true, hmr: false },

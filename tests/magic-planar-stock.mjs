@@ -1,6 +1,26 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { chromium, webkit } from 'playwright';
 import { createServer } from 'vite';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
+
+const evidence = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/planar-stock-edges.json'),
+);
+for (const [file, hash] of Object.entries(evidence.sourceGuards))
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+      .digest('hex'),
+    hash,
+    'Revalidate outer boundaries after geometry changes',
+  );
+assert.equal(evidence.rows.length, 44);
+assert.equal(evidence.rows.filter((r) => r.cohort === 'calibration').length, 15);
+assert.equal(evidence.validation.improved, evidence.validation.cardsWithReliableEdges);
+assert.ok(evidence.validation.afterMeanAbsolutePixels < 0.25);
+assert.ok(evidence.rows.every((r) => r.interiorChangedPixels === 0));
 
 // Original synthetic plate/mask pair: no external card assets or network.
 const server = await createServer({

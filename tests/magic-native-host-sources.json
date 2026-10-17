@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "reference": "8000228d77c91ceed98e604c50290aac4271ba7e",
+  "scope": "Exact host-hook and source-import changes. Hashes identify sources only; default native compatibility also requires the executable differential pixel and measurement gate.",
+  "files": {
+    "games/magic/src/css.d.ts": {
+      "before": null,
+      "after": "1b9391873f58af4a87a931c6f76e40e44d46a5c334e7d94e3171a11b3ddb81db"
+    },
+    "games/magic/src/fetch.ts": {
+      "before": "b16b3fefaa47d1f20df9555b8fb75eed3f290fd0d6a58580536c5194b2f8a109",
+      "after": "f9d8108bf5651ea38d6a2588311054498990a42f2f852686775ae0b6cde91876"
+    },
+    "games/magic/src/index.ts": {
+      "before": "373b0ccb8559595e194d9e4d490cbf5de05610b297d70b6aa428c3b743f2df30",
+      "after": "50111eaf42a5f822e8b1a807393d242d0a78fe81b2bba44231bbcb9266a7efdb"
+    },
+    "games/magic/src/presentation.ts": {
+      "before": "87dfa3fcef163821ab74233b9dc4c0b31b97de719868ca9c53a493ee1d5dbe26",
+      "after": "ab1377589705ba85ff978f304264d743b29f16af193769c35e04c8a18573be91"
+    },
+    "games/magic/src/presentation/adventure-footer.ts": {
+      "before": "cfb4f2d33d9e0c203457d6934815d567b4f949eaab7bb91de5bad476975bc715",
+      "after": "d8c99a006a878bcd4c8277ba0a3602bd96a133daea82469c4fc3ec55669a337f"
+    },
+    "games/magic/src/presentation/adventure-paint.ts": {
+      "before": "ce391cc8e279188c44cc6746fa2e4b5e4abda6945424db261dcfe7c7641972d1",
+      "after": "cb594031e62dc1eabb4ba7bee6d822dcce3d8012c85e1c97962ad3878142a34a"
+    },
+    "games/magic/src/presentation/adventure-rules.ts": {
+      "before": "9f1a43c6340b05ce73797e544a0ddfc91c3ffeb9d18e39a65e24d9e2787791d9",
+      "after": "fbf87b37d31914781877f00e00214fff00b838a4b3be92627e9c0addfffc66c7"
+    },
+    "games/magic/src/presentation/aftermath-paint.ts": {
+      "before": "34ee9c1e8aef746bd532069235d1affd527cbe3689cec820f840e2c3d72ca55a",
+      "after": "1bcc58e319349127763971855cdd4652556f937d006267051b70db2bf27e0560"
+    },
+    "games/magic/src/presentation/art-placement.ts": {
+      "before": "47630384becfa63ed1c8e21d183cf793880a9fc4eab127dfb32f4f506cbc6941",
+      "after": "f997f657a5c8daca66978612f4e870b1578a2095e1844a1fbe84fd6e480d2f5d"
+    },
+    "games/magic/src/presentation/canvas-assets.ts": {
+      "before": "e3a58258e01b9f8b22a5a78bbf7c4455681c46dec5329d06dff5358d5e5732de",
+      "after": "4c23318d534472f748396cbb6f3399f4dfce4845d7783cdd6b6aef4472d12db7"
+    },
+    "games/magic/src/presentation/canvas-face.ts": {
+      "before": "95a694d0eb976b5e77c3b042636c677de0034ebb551ab52da7f2be4f1c5f7fa1",
+      "after": "0bcc014ed11eeac8d9c20009db5478ba26eaa16b924de7f6a0df63ed1c61242c"
+    },
+    "games/magic/src/presentation/canvas-fonts.ts": {
+      "before": null,
+      "after": "2729b83d9ff145538fd4a795f34a6c0b9be8efd2d19606f15686fd5c480d92b5"
+    },
+    "games/magic/src/presentation/canvas-text.ts": {
+      "before": "df609003caa86eb8dfe112b61044da6645b25bfc705f5f49bcbb69642bd85e77",
+      "after": "38bbb39c430298d8b41dc27843fcad455b74b59994803b61b25a08a2fa340625"
+    },
+    "games/magic/src/presentation/eighth-footer.ts": {
+      "before": "3dbda1edb500318c4e660906665750ba5be604049f3525b6f48fd9778f6808bf",
+      "after": "6671496766f8afa51070c7a245b16efd59b726189217be6b0b74527cd19c640c"
+    },
+    "games/magic/src/presentation/extra-rule-paint.ts": {
+      "before": "c46fcf4cb3f3fa16c69db0e1685528cb22d5f1e7f9debc5d2790727ba72b5b08",
+      "after": "a4ebe89e2559f716526d43bfe36360a8095f0d50fa9af019659381b64eb67746"
+    },
+    "games/magic/src/presentation/face-layout.ts": {
+      "before": "81ed0fe3d1453d1751f70b8d35b79f217eebc74a890d4c058be81d4d170ec960",
+      "after": "d2b1eee77d22b51e8c7771e7f2941a65c39a6bd2f003fd9baf084f004ee2cd7e"
+    },
+    "games/magic/src/presentation/flip-template-paint.ts": {
+      "before": "4e5d2d0c9962f4aaac9f09a0424b94b561c968d2a8ca983de7f768f5a6456995",
+      "after": "7c06ac2bb13066704082f3af4a685c91ae824c570555a1ec9ade633e5aceec5e"
+    },
+    "games/magic/src/presentation/frame-plate-paint.ts": {
+      "before": "0e7f3a31ccb37fbccd548b9caf1690aa4818b52aa0898d306363531066fdaac0",
+      "after": "30e62c96bd8930f0258ad1b9924a11be321af3b9d92f27e867a0bef02a08442b"
+    },
+    "games/magic/src/presentation/frame-plates.ts": {
+      "before": "9a1007474831a5e37b965485949552bd6f5e65742b5be466c7f1c3845a5d6ccc",
+      "after": "ccb0127c101ba31b58f41fce8950f2dc88eed0219280facc9f868576fe35b603"
+    },
+    "games/magic/src/presentation/future-frame.ts": {
+      "before": "523d834e043c14155ca106cb6dd85f5e18c2f0796e2a396e3ca8c7e2bae33745",
+      "after": "a51704d29aa7758e2e05a41b309f36e776e927a643eff7c617cfe77770a2a174"
+    },
+    "games/magic/src/presentation/future-template-paint.ts": {
+      "before": "f7c7802dfdbfd8e380b57e1b0f64b3fc947c707eb5c502c54192c451ca9da1f5",
+      "after": "f701de41ef5ce04768cb0109ee5040dd47d33c482ab8d08f9b39ad9be22739e5"
+    },
+    "games/magic/src/presentation/historical-symbol-sources.ts": {
+      "before": "c44bfa5c8047c189eb03b34f472f6ce5d5bbe691cc6a474f97377328f18d2e1a",
+      "after": "9114a53f0ebc5777c42b6ab8213f5e55135189c2ff1cff944c4e76c4598b15ee"
+    },
+    "games/magic/src/presentation/illustration-layout.ts": {
+      "before": "12fe6702fa97151d6de5c5f219f0478edfc45d4640623bfa695cd7981a7fd822",
+      "after": "ee06a28da1644493362e91ffc5a1761f46915e35da8f97875f7155ecff15bbcc"
+    },
+    "games/magic/src/presentation/legends-footer.ts": {
+      "before": "f4b5a75977b349f298bcef09d72230d0988740061bf6475dc1b006f81479288a",
+      "after": "7cadceeb3d20002bbbc37d9f7c375a1a98f9f1f0ac3e9f3f538cea3aa21cbc9a"
+    },
+    "games/magic/src/presentation/modern-cost-mana.ts": {
+      "before": "1d034d49314f180937130ad25086741188152cf25cf578151e85f96f6b8201e0",
+      "after": "5248dd36f27c447d57a72b3a75727acb59dd61cbd05f200d3bd31139b2c85a80"
+    },
+    "games/magic/src/presentation/planeswalker-loyalty.ts": {
+      "before": "e263c195268fc3cf78a9f110c668a6f732a131fcf83adac1b3c1b5880e9d3b6f",
+      "after": "22b738fccd92b98f45365587becd4b43f4ddfdfdc9d26f547f791d1487a203f3"
+    },
+    "games/magic/src/presentation/planeswalker-rules.ts": {
+      "before": "68670c6ba19247a245b7df3445deed1efee805c3a2b1d52541ba96df634e7ea4",
+      "after": "71883cd1915ac2d262e59a01ec4f0902cf59814460a1a32560465dfe26cbc77e"
+    },
+    "games/magic/src/presentation/plate-basic-land.ts": {
+      "before": "c46be0f3e92083cc601ef2b92a9245e70da7621b72753047945b8792b8a3c7a1",
+      "after": "f30ecf43a0a6096de40c1d563f587a3b8e8517bb3b07a8d67a48a4a2d8f9cae0"
+    },
+    "games/magic/src/presentation/prepare-paint.ts": {
+      "before": "0826efdc6070f0aa5adf6cefad2a23fde3e01a5cb47574298d7b804dde8cd428",
+      "after": "412a99a572ca01caa3f3698a592d50714e38f19fd368b2e3d04bddcb2dd786d9"
+    },
+    "games/magic/src/presentation/printing-elements.ts": {
+      "before": "80d7488aa166c00c7cf98ba8c7ecf2326485bfa2acc086d8c50fa99da3bd45d8",
+      "after": "db6bb4e27a9c040a62baa3e2ba9d1c4c8cc569dc6d30ae9d1072726a670d10ab"
+    },
+    "games/magic/src/presentation/printing-presets.ts": {
+      "before": "63c33adf58cb3db0738d3d0eb457668fc1608391752e34de5fa6ee6697f39fc6",
+      "after": "3eed66253fe78559e950be6c787f5fef2869cfe3ae6313315cd0bb5f6ccd5cca"
+    },
+    "games/magic/src/presentation/printing-style.ts": {
+      "before": "735d5a8afea6df7eead67b687f39d22a108f7eeaab48b401396c6b6ab86385be",
+      "after": "d621c01f7169df6127a9716275261d01e42bd93e4bbb5f02f0156eebb20db3b0"
+    },
+    "games/magic/src/presentation/profile.ts": {
+      "before": "85a4a5938be19e69e6165de6e40e538a0b40a7a551f080025fdd8ba25d68ca7e",
+      "after": "406d845c4c7579bd7dbd3fdab50b1c22a60e82349b2836bc500ef7eb29686a3f"
+    },
+    "games/magic/src/presentation/retro-font.ts": {
+      "before": "4ec3606aa337bd210f82ae49533342ea48db666d835e82901255625626f13a35",
+      "after": "4558e764c43855dbfcdf9e56086bc310ab72d30125c02b1440425210a7323892"
+    },
+    "games/magic/src/presentation/retro-lettering.ts": {
+      "before": "7dd302d158f35c05124547cd3b3135cf5dca51b149b3cbf9d3a1b8b5b6c1ecab",
+      "after": "a4dd2277294f86c555563a791e198129d9d4d1fdbc5583534b234743134dbe37"
+    },
+    "games/magic/src/presentation/retro-paint.ts": {
+      "before": "011bd00a200a7f6dd7d98b84b7734cc88bda4f43d1e670aa7efaf8841a709de4",
+      "after": "ea5c12b42947d741d02553ade3b09021f15c7fa5a48701a3f47c5e1bebc2d2ca"
+    },
+    "games/magic/src/presentation/retro-urza-footer.ts": {
+      "before": "5e00281721be617f0581d6ecaf2117397c121f7e14a9e0bd84ab15874232b961",
+      "after": "e3c569b3c12416d8df75617bc1e384502b96d8db2748aba47a7d68f67c4377a0"
+    },
+    "games/magic/src/presentation/revised-land-text.ts": {
+      "before": "96e5760ea5b6bd9058b09d2a62680d570b623117c05984d4e26ba4d869bb6011",
+      "after": "9d8f4155011ab2f956bda58a97750d4c3f17a6aeab3243ee56cfb11882604978"
+    },
+    "games/magic/src/presentation/revised-lettering.ts": {
+      "before": "ad26944ce7b630f6cb7638eae777a19dc2b9fcd8ce0ccb0ad53b6f8e94d708d5",
+      "after": "46102e6f0bc3cec43933ef2de2efcbb5bce50c52309425271bbcfcaa5034bbdf"
+    },
+    "games/magic/src/presentation/rules-paint.ts": {
+      "before": "28c71e0b9fc25e210b5b9b5e0a7848df1f73f3622d16df4492236f0cb3ee63a2",
+      "after": "7b669814d33185b117526c2ca5611a6fcc13f0d686563b7c35289b358414ee0f"
+    },
+    "games/magic/src/presentation/rules-visibility.ts": {
+      "before": null,
+      "after": "99b9e72b21ff834ae1741b9881c8a2ededad78df5ddcd91a5b28abb779d76378"
+    },
+    "games/magic/src/presentation/saga-frame.ts": {
+      "before": "65e6eafe01a5413765ba3d47540650dfdff0bb8dc646f2407e67aa7a7c576888",
+      "after": "35af56bf334eee86dadd7d0f46a61ddf1521710fbc5a4d7094bf958c409259c6"
+    },
+    "games/magic/src/presentation/saga-paint.ts": {
+      "before": "1978790fd04f14ae14b5ddee39c6aafd8499adfe1d833caa401afcebbbc9434e",
+      "after": "22aff7439f5f6d4a5da9d7825870522d7d7d9d5eb78d1797a13be7b45ed685a3"
+    },
+    "games/magic/src/presentation/saga-rules.ts": {
+      "before": "1e163d2f85c23351f58769bec07dba1cd85616671836c457f6a54ce28f53050f",
+      "after": "91c0a67797de9ca22561941bac4a5a6acb79b13856d40c288133993469d5e7a4"
+    },
+    "games/magic/src/presentation/special-frames.ts": {
+      "before": "37fbd7679ab66c9311ec92e02d18372e2ca353edc3855f4983faa64165680dcb",
+      "after": "fb0fab8d1dd3b5c9be04139304cf3ade39b240785bdedc92c92f5efef4441802"
+    },
+    "games/magic/src/presentation/special-rule-paint.ts": {
+      "before": "72709997dfe887a8e855c651990885dac99c9382d27805cc6fc6238b3b738857",
+      "after": "85f865724d8eace81a63dac81ed07a1c21d417d36ef0152043c3a383260c85cb"
+    },
+    "games/magic/src/presentation/split-frame.ts": {
+      "before": "c75ba4c467a3bd463005f00791082fac5bbf4aa284ca8a60bab677fba9efa219",
+      "after": "271d6fa7f3af178e01ebd8f5a4537039c9e5011e7fb95426d29725755e093431"
+    },
+    "games/magic/src/presentation/split-fuse-bridge.ts": {
+      "before": "e4603c3edb993b5b8514d396bea9e785a2f7c83847ce795925d35e7866db2bf5",
+      "after": "406b618725672d3fec94bfa59edd8e064932c66b0e8755b4008699d5dc2a81ca"
+    },
+    "games/magic/src/presentation/split-modern-paint.ts": {
+      "before": "187298351e0b1ac00f3e423c9d7a2e6d3a1a1e369f41cbca345de9e283db8bb5",
+      "after": "6e7184d0d34e4b99d0ee15ca80711a57a360d7c3b37d1c1e65f9b29dddb8a53a"
+    },
+    "games/magic/src/presentation/split-paint.ts": {
+      "before": "fbe11ef3e087ffcd1a0795c902d8b1e421b500d3e1432cb5d5d7f5e6490c9120",
+      "after": "ce96855ca61e85369d964d6c8daf653d8c3de410e29e304843114679d5dba214"
+    },
+    "games/magic/src/presentation/standard-frame-paint.ts": {
+      "before": "4d330885bfea56fd0d5d9f48f472be0917891de5082361f408dca7293fcbd04b",
+      "after": "15d4362adb71c346e674806b9409ac485b0d37b5537c9309b6f64c537c4cd394"
+    },
+    "games/magic/src/presentation/template-typography.ts": {
+      "before": "2586b879688ea6b45923982eb240c036f2cbb734e19e3c8626fce24bef17ec6e",
+      "after": "cd25bbcf8de21e747a251a2fc5a1df5507d4aaf8df233d143e03343e2d2c8b5e"
+    },
+    "games/magic/src/presentation/text-ink.ts": {
+      "before": null,
+      "after": "51baed7910e9bc915ddde88cbd804994323cfbe319310904eaa7f57668939a4d"
+    },
+    "games/magic/src/presentation/wording.ts": {
+      "before": "95893e60192a43a623ae449636e104331625c6d2ac0b547f28624c9a68cb9466",
+      "after": "0fd6688bfc7f9a432b45dfbe056afff28434f711ee9c6ae1dd06db80ce8976d8"
+    }
+  }
+}

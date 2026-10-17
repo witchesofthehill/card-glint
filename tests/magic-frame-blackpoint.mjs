@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
 
 const server = await createServer({
   configFile: false,
@@ -11,6 +13,23 @@ try {
   const evidence = JSON.parse(
     await readFile('games/magic/fixtures/accuracy/planar-blackpoint.json'),
   );
+  for (const [file, hash] of Object.entries(evidence.sourceGuards))
+    assert.equal(
+      createHash('sha256')
+        .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+        .digest('hex'),
+      hash,
+      'Revalidate the ink fit after source pigment or geometry changes',
+    );
+  assert.equal(evidence.rows.filter((r) => r.cohort === 'calibration').length, 15);
+  assert.equal(evidence.rows.filter((r) => r.cohort === 'validation').length, 29);
+  for (const group of Object.values(evidence.summary))
+    assert.equal(group.validation.ink.improved, group.validation.cards);
+  for (const material of Object.values(evidence.materials)) {
+    assert.equal(material.brighterChanged, 0);
+    assert.equal(material.alphaChanged, 0);
+    assert.equal(material.transparentChanged, 0);
+  }
   const { colorFrame } = await server.ssrLoadModule('/games/magic/src/presentation/frame-hsb.ts');
   const { earlyHsbMaterialKey } = await server.ssrLoadModule(
     '/games/magic/src/presentation/early-hsb-material.ts',

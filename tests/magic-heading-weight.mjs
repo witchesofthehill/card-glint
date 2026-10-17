@@ -1,5 +1,25 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
 import { chromium } from 'playwright';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
+const evidence = JSON.parse(
+  await readFile('games/magic/fixtures/accuracy/planar-heading-weight.json'),
+);
+for (const [file, hash] of Object.entries(evidence.sourceGuards))
+  assert.equal(
+    createHash('sha256')
+      .update(await readNativeCompatibleSource('games/magic/src/presentation/' + file))
+      .digest('hex'),
+    hash,
+  );
+for (const summary of Object.values(evidence.native.summary))
+  assert.ok(summary.after > summary.before);
+for (const row of evidence.native.rows) {
+  assert.equal(row.outsideChanged, 0);
+  assert.equal(row.alphaChanged, 0);
+}
 const server = await createServer({
   configFile: false,
   optimizeDeps: { noDiscovery: true },
@@ -11,8 +31,9 @@ try {
   const page = await browser.newPage();
   await page.route('https://**/*', (route) => route.abort());
   await page.goto(server.resolvedUrls.local[0]);
-  await page.evaluate(async () => {
+  const results = await page.evaluate(async () => {
     const { paintFittedText } = await import('/games/magic/src/presentation/canvas-text.ts');
+    const results = [];
     for (const scale of [0.75, 1, 1.5, 2])
       for (const width of [350, 150]) {
         const draw = (inset) => {
@@ -73,6 +94,7 @@ try {
           throw Error('Inset should reduce coverage and retain solid cores');
         if (Math.abs(before.x - after.x) > 0.4 || Math.abs(before.y - after.y) > 0.4)
           throw Error('Inset moved the heading');
+        results.push({ scale, width, before, after });
       }
     const { withPrintingOmissions } = await import(
       '/games/magic/src/presentation/printing-omissions.ts'
@@ -110,7 +132,9 @@ try {
     if (!ctx.getImageData(0, 0, 488, 100).data.some((v) => v))
       throw Error('Printing omission leaked beyond its scope');
     c.width = c.height = 0;
+    return results;
   });
+  assert.equal(results.length, 8);
   console.log(
     'Colorshifted heading inset reduces stroke coverage at both raster tiers, preserves advances/state and avoids pixel readbacks.',
   );

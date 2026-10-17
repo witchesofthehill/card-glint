@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'vite';
+import { assertExpansionSourceHash } from './magic-expansion-source-guard.mjs';
 
 const evidence = JSON.parse(
   await readFile('games/magic/fixtures/accuracy/early-expansion-colors.json'),
@@ -9,6 +10,15 @@ const red = JSON.parse(
   await readFile('games/magic/fixtures/accuracy/early-expansion-red-frame.json'),
 );
 const groups = { ...evidence.groups, ...red.groups };
+for (const [file, hash] of Object.entries(evidence.sourceGuards))
+  await assertExpansionSourceHash('games/magic/src/presentation/' + file, hash);
+assert.equal(evidence.native.summary.cards, 316);
+assert.equal(evidence.native.summary.unchanged, 34);
+assert.equal(evidence.native.summary.centralArtworkByteExact, 316);
+assert.equal(evidence.compatibility.summary.unchanged, 276);
+assert.equal(evidence.compatibility.summary.manaUnchanged, 288);
+for (const row of evidence.compatibility.rows.filter((r) => r.scope === 'unchanged'))
+  assert.equal(row.beforeHash, row.afterHash);
 const identity = { hueDegrees: 0, saturationScale: 1, brightnessScale: 1 };
 const server = await createServer({
   configFile: false,
@@ -29,6 +39,7 @@ try {
     '/games/magic/src/presentation/calibration-profiles.ts',
   );
   assert.equal(Object.keys(EARLY_EXPANSION_COLORS).length, 20);
+  let adopted = 0;
   for (const [key, profile] of Object.entries(EARLY_EXPANSION_COLORS)) {
     const [setCode, material] = key.split('/');
     const face = {
@@ -55,7 +66,16 @@ try {
       const c = record.components[component];
       if (!c.selected) {
         assert.deepEqual(profile.adjustment[component], identity, 'Rejected fit must stay raw');
+        continue;
       }
+      adopted++;
+      assert.ok(c.passes, key + '/' + component);
+      const v = c.summary.validation;
+      assert.ok(v.cards >= 2 && v.names >= 2);
+      assert.ok(v.after <= v.before + 0.15 && v.after <= 5 && v.maxRegression <= 2);
+      assert.ok(c.clipping <= 0.03);
+      for (const [metric, value] of Object.entries(v.texture ?? {}))
+        assert.ok(value.after <= value.before + (metric === 'contrastError' ? 0.5 : 0.25));
     }
     // Custom layouts, opt-out, unrelated sets and explicit stock must not
     // inherit a calibration from an ordinary black-border source.
@@ -82,13 +102,16 @@ try {
       profile.source = source;
     }
   }
+  assert.equal(adopted, evidence.native.summary.selected + red.summary.selectedComponents);
   for (const face of [
     { setCode: 'arn', name: 'Mountain', typeLine: 'Land' },
     { setCode: 'drk', typeLine: 'Land' },
     { setCode: 'drk', typeLine: 'Summon', colors: ['G', 'R'] },
   ])
     assert.equal(earlyExpansionColors({ ...face, colorCalibration: 'set-hsb-v1' }), undefined);
-  console.log('Early color material bindings, rejected fits and opt-out scope pass.');
+  console.log(
+    `${adopted} native component fits pass; rejected fits, source guards and scope pass.`,
+  );
 } finally {
   await server.close();
 }

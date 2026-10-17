@@ -82,6 +82,10 @@ void main(){
  vec3 shaded=previewLinear(previewKind>=5. && previewKind<8. ? animatedSurface(uv,normalize(v_normal)) : previewFoil(uv,normalize(v_normal),view));
  vec3 base=printFace(uv).rgb;
  if(cardstockAmount>0. && previewKind>.5)shaded=previewLinear(cardstockGloss(uv,previewInk(base),previewInk(shaded)));
+ if(wearInfo.x>0.) {
+   float foilSubstrate=step(.5,previewKind)*(1.-step(4.5,previewKind));
+   shaded=previewLinear(wornSurface(uv,previewInk(base),previewInk(shaded),normalize(v_normal),view,wearInfo.y,wearInfo.x,foilSubstrate,wearPixel));
+ }
  vec4 c=texture(coverage,uv),top=texture(overlay,uv);
  vec3 under=mix(base,shaded,max(finishBase,c.r)*(1.-c.g));
  // Printing stays at the original UV, above all optical effects. The same
@@ -98,10 +102,6 @@ void main(){
    printing=mix(printing,reflected,overlayFoil.y);
  }
  vec3 printed=previewInk(mix(under,printing,top.a));
- if(wearInfo.x>0.) {
-   float foilSubstrate=step(.5,previewKind)*(1.-step(4.5,previewKind));
-   printed=wornSurface(uv,previewInk(mix(base,top.rgb,top.a)),printed,normalize(v_normal),view,wearInfo.y,wearInfo.x,foilSubstrate,wearPixel);
- }
 #ifdef LOCAL_HOLOGRAM
  out_color=vec4(localHologram(uv,printed,normalize(v_normal),view,grainFilter),1.);
 #else

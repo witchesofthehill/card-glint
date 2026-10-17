@@ -1,12 +1,38 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
+import { readNativeCompatibleSource } from './magic-native-source-guard.mjs';
 const server = await createServer({
   configFile: false,
   optimizeDeps: { noDiscovery: true },
   server: { middlewareMode: true, hmr: false },
 });
 try {
+  const footer = JSON.parse(await readFile('games/magic/fixtures/accuracy/legends-footer.json'));
+  assert.equal(footer.rows.length, 70);
+  assert.ok(
+    footer.rows.every((row) => row.runtime.maxDifference === 0 && !row.runtime.upperChanged),
+  );
+  for (const group of Object.values(footer.validation)) {
+    assert.ok(group.after > group.before + 0.2);
+    assert.equal(group.improved, group.cards);
+  }
+  assert.equal(
+    footer.sourceHash,
+    createHash('sha256')
+      .update(await readNativeCompatibleSource('games/magic/src/presentation/legends-footer.ts'))
+      .digest('hex'),
+  );
+  const coverage = JSON.parse(
+    await readFile('games/magic/fixtures/accuracy/legends-text-runtime.json'),
+  ).coverage;
+  for (const mode of ['original', 'oracle']) {
+    assert.equal(coverage.summary[mode].cards, 310);
+    assert.deepEqual(coverage.summary[mode].overflow, []);
+    assert.deepEqual(coverage.summary[mode].contentChanged, []);
+    assert.deepEqual(coverage.summary[mode].escapesBounds, []);
+  }
   const { legendsRulesParagraphs } = await server.ssrLoadModule(
     '/games/magic/src/presentation/legends-rules.ts',
   );

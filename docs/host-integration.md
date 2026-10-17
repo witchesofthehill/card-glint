@@ -65,6 +65,10 @@ when using the complete renderer's separately cached edge sources. Aborted jobs
 release leases and never publish partial output. Hosts may keep their own persistent
 image/derivative caches; none are installed globally by this API.
 
+Omit `rulesText` or pass `true` for normal native rules painting. Pass `false`
+to omit rules ink while retaining native paper, frames and panel geometry.
+Text-ink overrides are opt-in; omitted overrides retain the native lettering.
+
 The same entry exposes geometry for DOM accessibility and inline editing. Import
 `card-glint/magic/fonts.css` for the matching font names. Optional `setSymbol` URLs
 allow custom set marks without changing the visible `setCode`. Asset provenance

@@ -3,7 +3,10 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { createServer } from 'vite';
 import { chromium } from 'playwright';
-import { assertMagicSourceHash } from './magic-source-guard.mjs';
+import {
+  assertNativeMagicSourceHash,
+  readNativeCompatibleSource,
+} from './magic-native-source-guard.mjs';
 
 const receipt = JSON.parse(
   await readFile('games/magic/fixtures/accuracy/early-expansion-text-runtime.json'),
@@ -68,12 +71,12 @@ for (const [file, guard] of Object.entries(receipt.native.sourceExtension)) {
   const path = 'games/magic/src/presentation/' + file;
   const extension = dark.native.sourceExtension[path];
   if (extension) assert.equal(extension.before, guard.after, file);
-  await assertMagicSourceHash(path, extension?.after ?? guard.after);
+  await assertNativeMagicSourceHash(path, extension?.after ?? guard.after);
 }
 for (const [file, guard] of Object.entries(wording.guards))
   assert.equal(
     createHash('sha256')
-      .update(await readFile(file))
+      .update(await readNativeCompatibleSource(file))
       .digest('hex'),
     guard.after,
     file,
