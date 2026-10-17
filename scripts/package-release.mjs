@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -12,11 +12,10 @@ const output = path.resolve('dist/releases'),
   folder = `card-glint-${version}-browser`;
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-const packed = JSON.parse(
-  execFileSync('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', output], {
-    encoding: 'utf8',
-  }),
-)[0];
+execFileSync('npm', ['pack', '--ignore-scripts', '--pack-destination', output], {
+  stdio: 'inherit',
+});
+const packed = { filename: (await readdir(output))[0] };
 const browser = path.join(output, folder);
 await copyBrowserLibrary(browser);
 await cp('games/showcase/art', path.join(browser, 'art'), { recursive: true });
