@@ -459,23 +459,28 @@ async function verify() {
           paintTextInk(c, '2/3', 10, 45, 180);
           const plain = c.getImageData(0, 0, 220, 70).data;
           c.clearRect(0, 0, 220, 70);
+          c.fillStyle = '#f00';
+          c.fillText('2/3', 10, 45, 180);
+          const red = c.getImageData(0, 0, 220, 70).data;
+          c.clearRect(0, 0, 220, 70);
+          c.fillStyle = '#000';
           paintTextInk(c, '2/3', 10, 45, 180, { stats: [{ start: 0, end: 1, color: '#f00' }] });
           const colored = c.getImageData(0, 0, 220, 70).data;
           const spanEnd = 10 + c.measureText('2').width;
           let highlighted = false;
           for (let i = 0; i < plain.length; i += 4) {
-            check(colored[i + 3] === plain[i + 3], 'Ink spans changed glyph coverage');
-            if ((i / 4) % ink.width < spanEnd && plain[i + 3] > 0) {
+            const selected = (i / 4) % ink.width < spanEnd;
+            const expectedInk = selected ? red : plain;
+            check(
+              [0, 1, 2, 3].every((channel) => colored[i + channel] === expectedInk[i + channel]),
+              `Scoped ink differs from native glyph at ${i / 4}: ${Array.from(colored.slice(i, i + 4))} != ${Array.from(expectedInk.slice(i, i + 4))}`,
+            );
+            if (selected && red[i + 3] > 0) {
               check(
                 colored[i] > 0 && colored[i + 1] === 0 && colored[i + 2] === 0,
                 'Selected glyph did not receive the requested red ink',
               );
               highlighted = true;
-            } else {
-              check(
-                [0, 1, 2].every((channel) => plain[i + channel] === colored[i + channel]),
-                'Ink spans changed neighboring glyphs or paper',
-              );
             }
           }
           check(highlighted, 'Requested ink span has no colored glyph');
