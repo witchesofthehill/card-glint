@@ -43,7 +43,10 @@ export function sagaRuleLayout(
   ];
   const typography = { leading: 0.98, paragraphGap: 0.3, flavorGap: 0 };
   const top = opening.length ? SAGA_RULE_BOUNDS.reminderBottom : SAGA_RULE_BOUNDS.top,
-    bottom = face.reverseStats ? SAGA_RULE_BOUNDS.reverseStatsBottom : SAGA_RULE_BOUNDS.bottom;
+    bottom =
+      face.reverseStats && face.layout === 'transform'
+        ? SAGA_RULE_BOUNDS.reverseStatsBottom
+        : SAGA_RULE_BOUNDS.bottom;
   const reminder = layoutRules(
     context,
     opening.flatMap((r) => paragraphs(r.text, r.reminder)),

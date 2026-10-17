@@ -95,7 +95,7 @@ export function paintSagaFace(
     if (isStyledSetSymbol(url) || face.setSymbol) c.drawImage(icon, ...bounds);
     else paintSetSymbol(c, icon, face.setCode, face.rarity, ...bounds, crop);
   }
-  if (face.reverseStats) {
+  if (face.reverseStats && face.layout === 'transform') {
     c.fillStyle = '#65605a';
     c.font = 'italic 20px "CardRenderer MTG MPlantin", Georgia';
     c.textAlign = 'left';

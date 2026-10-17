@@ -129,6 +129,11 @@ add('saga/chapters', {
   power: undefined,
   toughness: undefined,
 });
+add('saga/transform', {
+  ...cases.find((specimen) => specimen.id === 'saga/chapters').face,
+  setCode: 'neo',
+  layout: 'transform',
+});
 add('class/levels', {
   typeLine: 'Enchantment — Class',
   layout: 'class',

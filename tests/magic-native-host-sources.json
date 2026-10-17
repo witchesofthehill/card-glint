@@ -173,11 +173,11 @@
     },
     "games/magic/src/presentation/saga-paint.ts": {
       "before": "1978790fd04f14ae14b5ddee39c6aafd8499adfe1d833caa401afcebbbc9434e",
-      "after": "22aff7439f5f6d4a5da9d7825870522d7d7d9d5eb78d1797a13be7b45ed685a3"
+      "after": "d97413d6b2abfe62b1f33bfe615ccad82a39e830e87f9bf958d6b7f376fda6e7"
     },
     "games/magic/src/presentation/saga-rules.ts": {
       "before": "1e163d2f85c23351f58769bec07dba1cd85616671836c457f6a54ce28f53050f",
-      "after": "91c0a67797de9ca22561941bac4a5a6acb79b13856d40c288133993469d5e7a4"
+      "after": "de7510979e33d34ce38bb61c538f5cd8e398f6d8628a25c1de933ca06375e020"
     },
     "games/magic/src/presentation/special-frames.ts": {
       "before": "37fbd7679ab66c9311ec92e02d18372e2ca353edc3855f4983faa64165680dcb",
