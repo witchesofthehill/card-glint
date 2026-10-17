@@ -71,7 +71,12 @@ for (const setCode of ['arn', 'atq', 'drk', 'leg', '3ed', 'plc', 'm21']) {
 add('urza/footer', { setCode: 'usg', frameStyle: 'retro' });
 add('future/regular', { setCode: 'fut', frameTemplate: 'future' });
 add('future/clear', { setCode: 'fut', frameTemplate: 'future', futureTreatment: 'clear' });
-add('future/full-art', { setCode: 'fut', frameTemplate: 'future', futureTreatment: 'full-art' });
+add('future/full-art', {
+  setCode: 'fut',
+  frameTemplate: 'future',
+  futureTreatment: 'full-art',
+  rulesText: '',
+});
 add('flip/front', {
   setCode: 'chk',
   frameTemplate: 'flip',
@@ -129,6 +134,8 @@ add('class/levels', {
   layout: 'class',
   rulesText:
     'Draw a card.\n{2}{U}: Level 2\nCreatures you control have flying.\n{4}{U}: Level 3\nDraw two cards.',
+  power: undefined,
+  toughness: undefined,
 });
 add('leveler/levels', {
   typeLine: 'Creature — Human Wizard',
@@ -147,6 +154,16 @@ for (const [layout, setCode] of [
   add(`${layout}/${setCode}`, {
     layout,
     setCode,
+    ...(['split', 'aftermath'].includes(layout)
+      ? {
+          typeLine: 'Instant // Sorcery',
+          colors: ['U', 'R'],
+          manaSymbols: [],
+          rulesText: '',
+          power: undefined,
+          toughness: undefined,
+        }
+      : {}),
     ...(setCode === 'inv' ? { frameStyle: 'retro' } : {}),
     ...(['rav', 'dgm'].includes(setCode) ? { frameAssetFamily: 'eighth' } : {}),
     ...(setCode === 'dgm'
@@ -165,6 +182,14 @@ for (const [layout, setCode] of [
         colors: ['R'],
         manaSymbols: ['R'],
         rulesText: 'Draw a card.',
+        ...(setCode === 'dgm'
+          ? {
+              rulesParagraphs: [
+                { role: 'rules', runs: [{ text: 'Draw a card.' }] },
+                { role: 'rules', runs: [{ text: 'Fuse ' }, { text: '(Reminder)', italic: true }] },
+              ],
+            }
+          : {}),
         illustration: 'native-compatibility-art',
       },
     ],
